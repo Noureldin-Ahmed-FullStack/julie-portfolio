@@ -2,6 +2,8 @@ import { MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
 import { NiceDiv } from "./ui/NiceDiv";
 import { useState } from "react";
 import Grid from '@mui/material/Grid2';
+import { DarkDiv } from "./ui/DarkDiv";
+import ArtItemBox from "./ui/ArtItemBox";
 
 
 export default function HomePage() {
@@ -53,6 +55,14 @@ export default function HomePage() {
                         </Grid>
                     </Grid>
                 </NiceDiv>
+                <DarkDiv className="mt-5 container">
+                    <div className="grid grid-cols-2 xl:grid-cols-4 gap-4">
+                        <ArtItemBox _id={"item._id"} type={"item.type"} className="my-2" Name={"Foxie za fox"} Icon={"https://res.cloudinary.com/dqijwldax/image/upload/v1735585634/Julie/fox_ndm7jy.jpg"} note={"item.note"} price={1000} />
+                        <ArtItemBox _id={"item._id"} type={"item.type"} className="my-2" Name={"never tiddie"} Icon={"https://res.cloudinary.com/dqijwldax/image/upload/v1735766039/Julie/neffertiti_bjyuqw.png"} note={"item.note"} price={1000} />
+                        <ArtItemBox _id={"item._id"} type={"item.type"} className="my-2" Name={"Foxie za fox"} Icon={"https://res.cloudinary.com/dqijwldax/image/upload/v1735585634/Julie/fox_ndm7jy.jpg"} note={"item.note"} price={1000} />
+                        <ArtItemBox _id={"item._id"} type={"item.type"} className="my-2" Name={"never tiddie"} Icon={"https://res.cloudinary.com/dqijwldax/image/upload/v1735766039/Julie/neffertiti_bjyuqw.png"} note={"item.note"} price={1000} />
+                    </div>
+                </DarkDiv>
             </div>
         </div>
     )

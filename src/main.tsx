@@ -29,9 +29,10 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/home", element: <HomePage /> },
+      { path: "/Julie", element: <HomePage /> },
       { path: "/favourites", element: <Favouritespage /> },
-      { path: "/sign-in", element: <CenteredPage className="mt-20"><SignUp routing='hash' forceRedirectUrl={'/Julie'} /></CenteredPage> },
-      { path: "/sign-up", element: <CenteredPage className="mt-20"><SignIn routing='hash' forceRedirectUrl={'/Julie'} /></CenteredPage> },
+      { path: "/sign-in", element: <CenteredPage className="my-10"><SignUp routing='hash' forceRedirectUrl={'/Julie'} /></CenteredPage> },
+      { path: "/sign-up", element: <CenteredPage className="my-10"><SignIn routing='hash' forceRedirectUrl={'/Julie'} /></CenteredPage> },
       { path: "*", element: <CenteredPage><NotFoundPage /></CenteredPage> },
     ]
   }

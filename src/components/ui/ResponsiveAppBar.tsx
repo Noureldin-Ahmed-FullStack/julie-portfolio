@@ -11,8 +11,9 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import LocalFloristIcon from '@mui/icons-material/LocalFlorist';
 import { Link } from 'react-router-dom';
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
-const pages = ['home', 'Blog', 'About me '];
+import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
+import AddArtsButton from '../Pages/AddArtsButton';
+const pages = ['home', 'Blog', 'About-me'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -107,8 +108,11 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
+                component={Link}
+                to={page}
                 key={page}
                 onClick={handleCloseNavMenu}
+                className='hover:text-inherit'
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
@@ -117,12 +121,28 @@ function ResponsiveAppBar() {
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <SignedOut>
-              <SignInButton />
+              <Button
+                variant='contained'
+                component={Link}
+                to="/sign-in"
+                className='hover:text-inherit !bg-slate-50 !text-zinc-100 !bg-gradient-to-r !from-violet-500/80 !to-orange-300/80'>
+                <Typography sx={{
+                  textAlign: 'center',
+                  fontFamily: 'monospace',
+                  fontWeight: 400,
+                  textTransform: "capitalize"
+                }}>Sign-In</Typography>
+              </Button>
             </SignedOut>
             <SignedIn>
-              <UserButton />
+              <div className='relative flex items-center'>
+                <div className="absolute right-10">
+                  <AddArtsButton />
+                </div>
+                <UserButton />
+              </div>
             </SignedIn>
-            
+
           </Box>
         </Toolbar>
       </Container>

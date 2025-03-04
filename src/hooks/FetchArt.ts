@@ -7,8 +7,10 @@ export const fetchArt = async () => {
 }
 
 export const fetchFavs = async (user_ID: string | undefined) => {
+    
     if (user_ID != null || user_ID != undefined) {
         const response = await axios.get(BaseURL + "favourites/" + user_ID);
+        console.log(response);
         return response.data;
     } else {
         return []

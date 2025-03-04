@@ -1,28 +1,31 @@
 import { CardBody, CardContainer, CardItem } from "./3d-card";
-import LocalActivityIcon from '@mui/icons-material/LocalActivity';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { IconButton } from "@mui/material";
 import { useUserContext, useUserFavsContext } from "../../context/UserContext";
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 const BaseURL = import.meta.env.VITE_BASE_URL;
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import axios from 'axios';
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../../context/AppContext";
+interface ratings {
+    userId: string
+    rating: number, // e.g., 1 to 5
+}
 interface props {
     _id: string,
     Name: string,
     type: string,
     Icon: string,
     price: number,
-    location: string,
-    address?: string,
+    note: string,
+    ratings?: ratings[],
     className?: string
 }
 export default function ArtItemBox(props: props) {
-    const { Icon, Name, location, price, className, _id, type, address } = props
+    const { Icon, Name, note, className, _id, type, ratings } = props
     const { userData } = useUserContext();
     const { favsList } = useUserFavsContext();
     const { currentPath } = useAppContext()
@@ -73,7 +76,7 @@ export default function ArtItemBox(props: props) {
     }
     return (
         <CardContainer className={"w-full " + className}>
-            <CardBody className="transition-all ease-in bg-zinc-100 bg-opacity-50 dark:bg-opacity-30 dark:bg-black relative dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] sm:w-[30rem] h-auto rounded-xl p-6 border ">
+            <CardBody className="transition-all w-full ease-in bg-zinc-100 bg-opacity-100 dark:bg-opacity-30 dark:bg-black relative dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] sm:w-[30rem] h-auto rounded-xl p-3 border ">
                 <CardItem
                     translateZ="50"
                     className="text-xl font-bold text-neutral-600 dark:text-white flex justify-between w-full"
@@ -86,15 +89,16 @@ export default function ArtItemBox(props: props) {
                     translateZ="60"
                     className="flex w-full justify-between text-neutral-500 text-sm mt-2 dark:text-neutral-300"
                 >
-                    <div><a href={location} target="_blank">{address}<LocationOnIcon /></a></div>
-                    <div>{price} EGP per hour <LocalActivityIcon /></div>
+                    <div>{note}</div>
+                    <div><StarBorderIcon /> {ratings?.length}</div>
                 </CardItem>
                 <CardItem translateZ="100" className="w-full mt-4">
                     <img
                         src={Icon}
-                        // height="1000"
-                        // width="1000"
-                        className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                        height="1000"
+                        width="1000"
+                        loading="lazy"
+                        className="w-full object-contain rounded-xl group-hover/card:shadow-xl"
                         alt="thumbnail"
                     />
                 </CardItem>

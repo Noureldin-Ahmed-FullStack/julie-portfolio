@@ -1,16 +1,19 @@
 import React from 'react'
 import { useRef, useState } from 'react';
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { useQueryClient } from '@tanstack/react-query';
 import Grid from '@mui/material/Grid2';
 import CustomDialog from '../ui/ModalWithChildren';
 import axios from 'axios';
-import { Alert, Chip, MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material';
+import { Alert, Chip, IconButton, MenuItem, Select, SelectChangeEvent, TextField, Tooltip } from '@mui/material';
 import FileUpload from '../ui/customFileUpload';
 import { PlaceholdersAndVanishInput } from '../ui/placeholders-and-vanish-input';
 import { toast } from 'react-toastify';
+import { useUserContext } from '../../context/UserContext';
 
 export default function AddArtsButton() {
     const [pendingRequest, setPendingRequest] = useState(false)
+    const { userData } = useUserContext();
     const [validationErrors, setValidationErrors] = useState<string[]>([])
     const [emptyIndicesState, setEmptyIndicesState] = useState<number[]>([])
     function findEmptyStringIndices(variables: string[]): number[] {
@@ -22,6 +25,7 @@ export default function AddArtsButton() {
     const handleArtTypeChange = (event: SelectChangeEvent) => {
         setArtType(event.target.value as string);
     };
+    
     const placeholders = [
         "5v5",
         "club",
@@ -238,7 +242,11 @@ export default function AddArtsButton() {
                     />
                 </div>
             </CustomDialog>
-            <button onClick={handleOpenDialog} className="w-full mt-5 px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold">Add Art</button>
+            {userData?.role=="admin" && <Tooltip title="Add Artwork" followCursor>
+                <IconButton onClick={handleOpenDialog} aria-label="add artwork">
+                    <AddPhotoAlternateIcon />
+                </IconButton>
+            </Tooltip>}
 
         </>
     )

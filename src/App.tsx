@@ -12,7 +12,7 @@ import ResponsiveAppBar from "./components/ui/ResponsiveAppBar";
 function App() {
   const { userData, setUserData } = useUserContext();
   const { setfavsList ,setfavsLoading } = useUserFavsContext();
-
+  
   const { data } = useFavs(userData?._id)
   // const location = useLocation();
   // const currentPath = location.pathname;
