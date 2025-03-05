@@ -25,7 +25,7 @@ export default function AddArtsButton() {
     const handleArtTypeChange = (event: SelectChangeEvent) => {
         setArtType(event.target.value as string);
     };
-    
+
     const placeholders = [
         "5v5",
         "club",
@@ -128,8 +128,8 @@ export default function AddArtsButton() {
         }
         setPendingRequest(true)
         try {
-            const response = await axios.post(BaseURL + "field", formData);
-            queryClient.refetchQueries({ queryKey: ['fields'] });
+            const response = await axios.post(BaseURL + "art", formData);
+            queryClient.refetchQueries({ queryKey: ['art'] });
             console.log(response);
             setPendingRequest(false)
         } catch (error) {
@@ -143,9 +143,27 @@ export default function AddArtsButton() {
                 draggable: true,
                 progress: undefined,
                 theme: "light",
-            });
+            })
             setPendingRequest(false)
-        }
+            return
+        };
+
+        const arr = ['(headpats ( ´･･)ﾉ(._.`)'
+            , 'Good job (❁´◡`❁)'
+            , 'Proud of you o((>ω< ))o)'
+            , 'eyyy (☞ﾟヮﾟ)☞☜(ﾟヮﾟ☜)'
+            , 'Good girl (¬‿¬)'];
+        const randomMessage = arr.at(Math.floor(Math.random() * arr.length));
+        toast.success("Art work added sucessfully, " + randomMessage, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        })
         handleCloseDialog();
     };
     const handleOpenDialog = () => {
@@ -166,6 +184,7 @@ export default function AddArtsButton() {
                 open={isDialogOpen}
                 onClose={handleCloseDialog}
                 isDisabled={pendingRequest || artType == "select_art_type"}
+                isLoading={pendingRequest}
                 onConfirm={() => handleConfirmAction()}
                 title="Add Art Peice"
                 confirmColor='primary'
@@ -242,7 +261,7 @@ export default function AddArtsButton() {
                     />
                 </div>
             </CustomDialog>
-            {userData?.role=="admin" && <Tooltip title="Add Artwork" followCursor>
+            {userData?.role == "admin" && <Tooltip title="Add Artwork" followCursor>
                 <IconButton onClick={handleOpenDialog} aria-label="add artwork">
                     <AddPhotoAlternateIcon />
                 </IconButton>

@@ -9,25 +9,47 @@ import { Box, createTheme, ThemeProvider } from "@mui/material";
 import { useThemeStore } from "./context/ThemeContext";
 import { useFavs } from "./hooks/FetchArt";
 import ResponsiveAppBar from "./components/ui/ResponsiveAppBar";
+import { useAppContext } from "./context/AppContext";
 function App() {
   const { userData, setUserData } = useUserContext();
-  const { setfavsList ,setfavsLoading } = useUserFavsContext();
-  
-  const { data } = useFavs(userData?._id)
-  // const location = useLocation();
-  // const currentPath = location.pathname;
+  const { setfavsList, setfavsLoading } = useUserFavsContext();
+
+  const { data, isFetching, isLoading } = useFavs(userData?._id)
+
   useEffect(() => {
-    if (data?.items) {
+    // console.log(data?.items, !isLoading, !isFetching, userData);
+
+    if (data?.items && !isLoading && !isFetching && userData) {
       setfavsList(data.items);
+      setfavsLoading(false)
+      console.log(data.items);
+    }
+    if (!data?.items && !isLoading && !isFetching && !userData) {
+      setfavsList([]);
       setfavsLoading(false)
       // console.log(data.items);
     }
   }, [data, setfavsList])
-  
+  useEffect(() => {
+    const device = detectDevice();
+    setcurrentDevice(device)
+  }, [])
+
   const { theme } = useThemeStore();
   const BaseURL = import.meta.env.VITE_BASE_URL;
   const { isLoaded, isSignedIn, user } = useUser();
 
+  const detectDevice = () => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    if (/android/.test(userAgent)) {
+      return 'Android';
+    } else if (/iphone|ipad|ipod/.test(userAgent)) {
+      return 'iOS';
+    } else {
+      return 'Other';
+    }
+  }
+  const { setcurrentDevice } = useAppContext();
   const ref = useRef<HTMLDivElement>(null);
   // const navbarItems = [
   //   { name: 'Home', link: 'home' }, { name: 'favourites', link: 'favourites' }, { name: 'social', link: 'social' }, { name: 'News', link: 'News' }, { name: 'Profile', link: 'Profile' }
@@ -55,7 +77,7 @@ function App() {
         .then((response) => {
           // console.log("Success:", response.data.userData);
           setUserData(response.data.userData)
-          
+
         }).catch((error) => {
           console.log(error);
         })
@@ -67,7 +89,7 @@ function App() {
     <Box className='flex !bg-fixed bg-gradient-to-tr from-stone-300 from-0% via-amber-100 to-emerald-100 dark:bg-gradient-to-tr dark:from-stone-900 dark:via-zinc-800 dark:to-emerald-800 grow flex-col text-zinc-900 dark:text-zinc-100' ref={ref}>
       <ThemeProvider theme={darkTheme}>
         <ResponsiveAppBar />
-      {/* {(currentPath != "/" && currentPath != "/home") &&<FloatingNav navItems={navbarItems}/>} */}
+        {/* {(currentPath != "/" && currentPath != "/home") &&<FloatingNav navItems={navbarItems}/>} */}
         <Outlet />
       </ThemeProvider>
 

@@ -116,3 +116,6 @@
     height: 100%;
     object-fit: cover; /* Preserve aspect ratio and prevent cropping */
   }
+  .myLightPost {
+    background-color: #e8f7e9 !important;
+}
