@@ -17,6 +17,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import 'react-toastify/dist/ReactToastify.css';
 import Favouritespage from './components/Pages/Favouritespage.tsx'
+import ArtDetailsPage from './components/Pages/ArtDetailsPage.tsx'
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
 if (!PUBLISHABLE_KEY) {
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/home", element: <HomePage /> },
       { path: "/Julie", element: <HomePage /> },
+      { path: "/artpiece/:artID", element: <ArtDetailsPage /> },
       { path: "/favourites", element: <Favouritespage /> },
       { path: "/sign-in", element: <CenteredPage className="my-10"><SignUp routing='hash' forceRedirectUrl={'/Julie'} /></CenteredPage> },
       { path: "/sign-up", element: <CenteredPage className="my-10"><SignIn routing='hash' forceRedirectUrl={'/Julie'} /></CenteredPage> },

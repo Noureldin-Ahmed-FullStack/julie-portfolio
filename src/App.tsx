@@ -10,6 +10,7 @@ import { useThemeStore } from "./context/ThemeContext";
 import { useFavs } from "./hooks/FetchArt";
 import ResponsiveAppBar from "./components/ui/ResponsiveAppBar";
 import { useAppContext } from "./context/AppContext";
+import { FloatingNav } from "./components/ui/floating-navbar";
 function App() {
   const { userData, setUserData } = useUserContext();
   const { setfavsList, setfavsLoading } = useUserFavsContext();
@@ -86,9 +87,10 @@ function App() {
   }, [isLoaded, isSignedIn, user])
 
   return (
-    <Box className='flex !bg-fixed bg-gradient-to-tr from-stone-300 from-0% via-amber-100 to-emerald-100 dark:bg-gradient-to-tr dark:from-stone-900 dark:via-zinc-800 dark:to-emerald-800 grow flex-col text-zinc-900 dark:text-zinc-100' ref={ref}>
+    <Box className='flex !bg-fixed bg-gradient-to-tr from-stone-300 from-0% to-emerald-100 dark:bg-gradient-to-tr dark:from-stone-900 dark:via-zinc-800 dark:to-emerald-800 grow flex-col text-zinc-900 dark:text-zinc-100' ref={ref}>
       <ThemeProvider theme={darkTheme}>
         <ResponsiveAppBar />
+        {/* <FloatingNav navItems={[{link:"Home",name:"Home"},{link:"Blog",name:"Blog"},{link:"About-me",name:"About me"},]}/> */}
         {/* {(currentPath != "/" && currentPath != "/home") &&<FloatingNav navItems={navbarItems}/>} */}
         <Outlet />
       </ThemeProvider>

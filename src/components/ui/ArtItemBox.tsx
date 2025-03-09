@@ -76,56 +76,61 @@ export default function ArtItemBox(props: props) {
             });
         }
     }
-    if (currentDevice != 'Other') {
+    if (currentDevice == 'Other') {
 
         return (
-            <CardContainer className={"w-full " + className}>
-                <CardBody className="transition-all w-full ease-in bg-zinc-100 bg-opacity-100 dark:bg-opacity-30 dark:bg-black relative dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] sm:w-[30rem] h-auto rounded-xl p-3 border ">
-                    <CardItem
-                        translateZ="50"
-                        className="text-xl font-bold text-neutral-600 dark:text-white flex justify-between w-full"
-                    >
-                        {Name}
-                        {favContains(_id) ? <Tooltip title="Remove from Favourites" followCursor><IconButton onClick={() => removeFav(userData?._id, _id)} className='!text-red-700 dark:!text-inherit' sx={{ marginRight: "-10px" }} aria-label="add to Favourites"><FavoriteIcon className="cursor-pointer" /></IconButton></Tooltip> : <Tooltip title="Add to Favourites" followCursor><IconButton onClick={() => addFav(userData?._id, _id)} sx={{ marginRight: "-10px" }} aria-label="add to Favourites"><FavoriteBorderIcon className="cursor-pointer" /></IconButton></Tooltip>}
-                    </CardItem>
-                    <CardItem
-                        as="div"
-                        translateZ="60"
-                        className="flex w-full justify-between text-neutral-500 text-sm mt-2 dark:text-neutral-300"
-                    >
-                        <div>{type}</div>
-                        <div className="flex items-end">4.6<StarBorderIcon />{ratings?.length}</div>
+            <CardContainer className={"w-full grow flex flex-col" + className}>
+                <CardBody className="grow flex flex-col transition-all w-full ease-in bg-zinc-100 bg-opacity-100 dark:bg-opacity-30 dark:bg-black relative dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] sm:w-[30rem] h-auto rounded-xl p-3 border ">
+                    <Grid direction={"column"} container className="justify-between grow">
+                        <Grid sx={{ width: "100%" }} size={3}>
+                            <CardItem
+                                translateZ="50"
+                                className="text-xl font-bold text-neutral-600 dark:text-white flex justify-between w-full"
+                            >
+                                {Name}
+                                {favContains(_id) ? <Tooltip title="Remove from Favourites" followCursor><IconButton onClick={() => removeFav(userData?._id, _id)} className='!text-red-700 dark:!text-inherit' sx={{ marginRight: "-10px" }} aria-label="add to Favourites"><FavoriteIcon className="cursor-pointer" /></IconButton></Tooltip> : <Tooltip title="Add to Favourites" followCursor><IconButton onClick={() => addFav(userData?._id, _id)} sx={{ marginRight: "-10px" }} aria-label="add to Favourites"><FavoriteBorderIcon className="cursor-pointer" /></IconButton></Tooltip>}
+                            </CardItem>
+                            <CardItem
+                                as="div"
+                                translateZ="60"
+                                className="flex w-full justify-between text-neutral-500 text-sm mt-2 dark:text-neutral-300"
+                            >
+                                <div>{type}</div>
+                                <div className="flex items-end">4.6<StarBorderIcon />{ratings?.length}</div>
 
-                    </CardItem>
-                    <CardItem
-                        as="div"
-                        translateZ="60"
-                        className="flex w-full justify-between text-neutral-500 text-sm mt-2 dark:text-neutral-300"
-                    >
-                        <div>{note}</div>
+                            </CardItem>
+                        </Grid>
 
-                    </CardItem>
-                    <CardItem translateZ="100" className="w-full mt-4">
-                        <img
-                            src={Icon}
-                            // className="h-100 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
-                            loading="lazy"
-                            className="w-full object-contain rounded-xl group-hover/card:shadow-xl"
-                            alt="thumbnail"
-                        />
-                    </CardItem>
-                    <div className="flex justify-between items-center mt-4">
-                        <CardItem
-                            translateZ={20}
-                            as={Link}
-                            to={"/field/" + _id}
-                            className="px-4 py-2 rounded-xl hover:text-inherit bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-                        >
-                            Details
-                        </CardItem>
-                    </div>
+                        <Grid sx={{ width: "100%" }} size={6}>
+                            <CardItem translateZ="100" className="w-full mt-4">
+                                <img
+                                    src={Icon}
+                                    // className="h-100 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
+                                    loading="lazy"
+                                    className="w-full object-contain rounded-xl group-hover/card:shadow-xl"
+                                    alt="thumbnail"
+                                />
+
+                            </CardItem>
+                        </Grid>
+
+                        <Grid sx={{ width: "100%" }} size={3}>
+                            <CardItem
+                                as="div"
+                                translateZ="60"
+                                className="w-full justify-between text-neutral-500 text-sm mt-2 dark:text-neutral-300"
+                            >
+                                <div className="mb-5">{note}</div>
+
+                                <Link to={"/artpiece/" + _id} className="border px-4 py-1 rounded-lg border-gray-500 text-slate-700">
+                                    Explore
+                                </Link>
+                            </CardItem>
+                           
+                        </Grid>
+                    </Grid>
                 </CardBody>
-            </CardContainer>
+            </CardContainer >
         )
     } else {
         return (
@@ -155,7 +160,7 @@ export default function ArtItemBox(props: props) {
                             </p>
 
                             <div className="w-full flex justify-end">
-                                <Link to={"/field/" + _id} className="border px-4 py-1 rounded-lg border-gray-500 text-slate-700">
+                                <Link to={"/artpiece/" + _id} className="border px-4 py-1 rounded-lg border-gray-500 text-slate-700">
                                     Explore
                                 </Link>
                             </div>

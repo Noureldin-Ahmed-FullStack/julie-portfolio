@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
 import CenteredPage from "../CenteredPage";
-import { useFieldDetails } from "../../hooks/FetchArt";
+import { useArtDetails } from "../../hooks/FetchArt";
 import { useEffect, useState } from "react";
 import { GridLoader } from "react-spinners";
 import { useThemeStore } from "../../context/ThemeContext";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
+import { motion } from "framer-motion";
 import Grid from '@mui/material/Grid2';
 import "slick-carousel/slick/slick-theme.css";
 import StarRateIcon from '@mui/icons-material/StarRate';
@@ -13,6 +14,7 @@ import { response } from "../../types";
 import { CardBody } from "../ui/3d-card";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { Chip } from "@mui/material";
+import { ImagesSlider } from "../ui/Image-slider";
 export default function ArtDetailsPage() {
 
     var settings = {
@@ -26,27 +28,24 @@ export default function ArtDetailsPage() {
     };
     const { artID } = useParams();
     const { theme } = useThemeStore();
-    const { data } = useFieldDetails(artID)
+    const { data } = useArtDetails(artID)
     const [Art, setArt] = useState<response | "error">()
     useEffect(() => {
-        console.log(data);
+        console.log(artID);
         setArt(data)
     }, [data])
     if (Art && Art != "error") {
         return (
             <div className="grow flex flex-col">
+                <ImagesSlider className="h-[40rem]" images={Art.Images}>
+                   <></>
+                </ImagesSlider>
                 <div className="hidden md:block">
                     <CenteredPage className="mt-28 text-zinc-800 dark:text-zinc-100 mx-auto maxWidth75vw transition-all ease-in bg-zinc-100 bg-opacity-50 dark:bg-opacity-30 dark:bg-black relative dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] sm:w-[30rem] h-auto rounded-xl p-6 border ">
                         <Grid container spacing={2} className="w-full">
                             <Grid size={4}>
                                 <div className="carousel-container">
-                                    <Slider {...settings}>
-                                        {Art.Images.map((img, index) => (
-                                            <div key={index} className="carousel-slide">
-                                                <img className="carousel-image rounded-lg" src={img} alt={Art.title} />
-                                            </div>
-                                        ))}
-                                    </Slider>
+
                                 </div>
                             </Grid>
                             <Grid size={8}>

@@ -27,10 +27,10 @@ export const useFavs = (user_ID: string | undefined) => {
         refetchOnWindowFocus: false,
     });
 }
-const fetchFieldDetails = async (fieldID: string | undefined) => {
-    if (fieldID != null || fieldID != undefined) {
+const fetchArtDetails = async (artPeiceID: string | undefined) => {
+    if (artPeiceID != null || artPeiceID != undefined) {
         try {
-            const response = await axios.get(BaseURL + "fieldDetails/" + fieldID);
+            const response = await axios.get(BaseURL + "artDetails/" + artPeiceID);
             return response.data;
         } catch (error) {
             console.error(error);
@@ -50,10 +50,10 @@ export const useArt = (artType: string, title?: string | undefined, tag?: string
         refetchOnWindowFocus: false,
     });
 }
-export const useFieldDetails = (fieldID: string | undefined) => {
+export const useArtDetails = (fieldID: string | undefined) => {
     return useQuery({
         queryKey: ['FieldDetails' + fieldID, fieldID],
-        queryFn: () => fetchFieldDetails(fieldID),
+        queryFn: () => fetchArtDetails(fieldID),
         enabled: !!fieldID,
         staleTime: 5 * 60 * 1000,
         refetchOnWindowFocus: false,
