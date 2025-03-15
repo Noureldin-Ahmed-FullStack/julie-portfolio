@@ -6,6 +6,7 @@ import './styles/fonts.css'
 import './styles/Post.css'
 import './styles/ExtraComponents.css'
 import './styles/navbar.css'
+import './styles/socials.css'
 import { ToastContainer } from 'react-toastify';
 import "yet-another-react-lightbox/styles.css";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'

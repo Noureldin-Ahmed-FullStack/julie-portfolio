@@ -134,7 +134,7 @@ export const FloatingNav = ({
               key={`link=${idx}`}
               to={navItem.link}
               className={cn(
-                "relative dark:text-neutral-50 hover:border-b-2 border-gray-500 navLinks items-center font-bold flex text-neutral-200 dark:hover:text-neutral-300 hover:text-neutral-500", (currentPath == (getPathIndex(navItem.link))) ? "navOutline border-b-emerald-700 dark:border-b-blue-700" : ""
+                "relative dark:text-neutral-50 hover:border-b-2 border-gray-500 navLinks items-center font-bold flex text-neutral-200 dark:hover:text-neutral-300 hover:text-orange-100", (currentPath == (getPathIndex(navItem.link))) ? "navOutline border-b-emerald-700 dark:border-b-blue-700" : ""
               )}
             >
               <span className="block sm:hidden">{navItem.icon}</span>

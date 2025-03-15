@@ -15,6 +15,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      colors: {
+        cream: '#F5EEBB' // Your own color
+      },
       animation: {
         aurora: "aurora 60s linear infinite",
         "meteor-effect": "meteor 5s linear infinite",
