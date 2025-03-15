@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-import { useAppContext } from "../../context/AppContext";
+// import { useAppContext } from "../../context/AppContext";
 import { Meteors } from "./meteors";
 interface ratings {
     userId: string
@@ -26,10 +26,9 @@ interface props {
     className?: string
 }
 export default function ArtItemMUI(props: props) {
-    const { Icon, Name, note, className, _id, type, ratings } = props
+    const { Icon, Name, note, _id, type, ratings } = props
     const { userData } = useUserContext();
     const { favsList } = useUserFavsContext();
-    const { currentDevice } = useAppContext()
     const queryClient = useQueryClient();
     const favContains = (itemID: string) => {
         const item = favsList.find(item => item._id === itemID);

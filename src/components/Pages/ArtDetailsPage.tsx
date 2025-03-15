@@ -6,7 +6,7 @@ import { GridLoader } from "react-spinners";
 import { useThemeStore } from "../../context/ThemeContext";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import Grid from '@mui/material/Grid2';
 import "slick-carousel/slick/slick-theme.css";
 import StarRateIcon from '@mui/icons-material/StarRate';
