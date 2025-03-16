@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
 // import { FloatingNav } from "./components/ui/floating-navbar"
 // import OpenIconSpeedDial from "./components/ui/SpeedDial"
 import { useUserContext, useUserFavsContext } from "./context/UserContext";
@@ -14,6 +14,8 @@ import TailwindNavbar from "./components/ui/TailwindNavbar";
 // import { FloatingNav } from "./components/ui/floating-navbar";
 function App() {
   const { userData, setUserData } = useUserContext();
+  const { setcurrentDevice ,setcurrentPath} = useAppContext();
+
   const { setfavsList, setfavsLoading } = useUserFavsContext();
 
   const { data, isFetching, isLoading } = useFavs(userData?._id)
@@ -33,6 +35,11 @@ function App() {
     }
   }, [data, setfavsList])
 
+    const location = useLocation();
+
+  useEffect(() => {
+    setcurrentPath(location.pathname)
+  }, [location])
   useEffect(() => {
     const device = detectDevice();
     setcurrentDevice(device)
@@ -52,7 +59,6 @@ function App() {
       return 'Other';
     }
   }
-  const { setcurrentDevice } = useAppContext();
   const ref = useRef<HTMLDivElement>(null);
   // const navbarItems = [
   //   { name: 'Home', link: 'home' }, { name: 'favourites', link: 'favourites' }, { name: 'social', link: 'social' }, { name: 'News', link: 'News' }, { name: 'Profile', link: 'Profile' }
@@ -78,7 +84,7 @@ function App() {
       axios
         .post(`${BaseURL}signUp`, bodyData)
         .then((response) => {
-          // console.log("Success:", response.data.userData);
+          console.log("Success:", response.data.userData);
           setUserData(response.data.userData)
 
         }).catch((error) => {

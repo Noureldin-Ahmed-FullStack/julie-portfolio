@@ -263,7 +263,7 @@ export default function AddArtsButton() {
             </CustomDialog>
             {userData?.role == "admin" && <Tooltip title="Add Artwork" followCursor>
                 <IconButton onClick={handleOpenDialog} aria-label="add artwork">
-                    <AddPhotoAlternateIcon fontSize="large"/>
+                    <AddPhotoAlternateIcon className='text-neutral-100' fontSize="large"/>
                 </IconButton>
             </Tooltip>}
 

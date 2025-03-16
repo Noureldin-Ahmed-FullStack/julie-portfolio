@@ -9,6 +9,7 @@ import { Meteors } from "./ui/meteors";
 import { Input } from "./ui/aceternityInput";
 import FileUpload from "./ui/customFileUpload";
 import { useQueryClient } from "@tanstack/react-query";
+import { useLocation } from "react-router-dom";
 
 const Transition = React.forwardRef(function Transition(
     props: TransitionProps & {
@@ -22,6 +23,7 @@ const Transition = React.forwardRef(function Transition(
 export default function AddPost() {
     const BaseURL = import.meta.env.VITE_BASE_URL;
     const { userData } = useUserContext()
+    const location = useLocation();
     const [PendingRequest, setPendingRequest] = useState(false);
     const [open, setOpen] = useState(false);
     const [Images, setImages] = useState<File[]>([]);
@@ -29,6 +31,8 @@ export default function AddPost() {
     // const [items, setItems] = useState([]);
     const [ContentState, setContentState] = useState("");
     const contenteRef = useRef<HTMLInputElement | null>(null);
+    let isNews = location.pathname == "/blog" ? false : true
+    console.log(location.pathname, isNews);
 
     const handleFileChange = (files: File[]) => {
         setImages(files)
@@ -52,8 +56,9 @@ export default function AddPost() {
     const handleClose = () => {
         setOpen(false);
     };
-    const addPost = async(postData: FormData) => {
+    const addPost = async (postData: FormData) => {
         console.log({ postData: postData });
+        postData.append
         if (!userData) {
             console.log("Sign in first!");
 
@@ -98,7 +103,7 @@ export default function AddPost() {
                 if (contenteRef.current) {
                     contenteRef.current.value = '';
                 }
-                queryClient.refetchQueries({ queryKey: ['SocialPosts'] });
+                queryClient.refetchQueries({ queryKey: [isNews ? 'newsPosts' : 'SocialPosts'] });
                 setPendingRequest(false)
                 handleClose();
 
@@ -131,7 +136,7 @@ export default function AddPost() {
                 keepMounted
                 maxWidth="md"
                 onClose={handleClose}
-                aria-describedby="alert-dialog-slide-description"
+                aria-describedby="dialog-for-adding-post"
                 PaperProps={{
                     className: '!bg-slate-50 dark:!bg-slate-800 dark:!text-slate-50',
                     component: 'form',
@@ -140,6 +145,7 @@ export default function AddPost() {
                         const formData = new FormData(event.currentTarget);
                         const formJson = Object.fromEntries((formData as any).entries());
                         formData.append('content', formJson.Content_textarea)
+                        formData.append('isNews', isNews ? 'true' : 'false')
                         Array.from(Images).forEach((image) => {
                             formData.append('Images', image);  // Append each image under the 'Images' key
                         });
@@ -163,7 +169,7 @@ export default function AddPost() {
                 <DialogContent>
                     <DialogContentText
                         component={"div"}
-                        id="alert-dialog-slide-description"
+                        id="dialog-for-adding-post"
                     >
                         <div className="flex flex-col pt-3">
                             <TextField

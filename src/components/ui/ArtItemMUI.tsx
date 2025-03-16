@@ -79,7 +79,7 @@ export default function ArtItemMUI(props: props) {
                 <img
                     src={Icon}
                     alt="Painting"
-                    className="w-full h-96 object-contain"
+                    className="w-full object-contain"
                 />
 
                 <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:pb-8 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-between p-4">

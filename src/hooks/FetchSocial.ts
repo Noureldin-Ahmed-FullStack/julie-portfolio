@@ -15,6 +15,8 @@ type FetchSocialPostsParams = {
   };
 export const fetchSocialPosts = async ({ pageParam }: FetchSocialPostsParams)=> {
     const response = await axios.get(BaseURL + "post/" + pageParam);
+    console.log(response.data);
+    
     return response.data;  // Assuming the response matches the SocialPostsResponse structure
 };
 const fetchSocialPostDetails = async (SocialPostId: string) => {

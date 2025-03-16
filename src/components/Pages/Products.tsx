@@ -42,7 +42,7 @@ export default function Products() {
     }
     return (
         <>
-            <NiceDiv className="!w-1/2">
+            <NiceDiv className="md:!w-3/4 !w-full mt-5">
                 <form onSubmit={searchFunc}>
                     <Grid container className="justify-between" spacing={2}>
                         <Grid size={6}>
@@ -86,7 +86,7 @@ export default function Products() {
 
             </NiceDiv>
             <DarkDiv className="mt-5 container">
-                <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 items-stretch">
+                <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
                     {data.map((item: ArtPieceType) => (
                         <ArtItemMUI key={item._id} _id={item._id} type={item.type} className="my-2" Name={item.title} Icon={item.coverImage} note={item.note} price={1000} />
                     ))}
