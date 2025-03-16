@@ -15,6 +15,11 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      imageRendering: {
+        'auto': 'auto',
+        'pixelated': 'pixelated',
+        'crisp': 'crisp-edges',
+      },
       colors: {
         cream: '#F5EEBB' // Your own color
       },

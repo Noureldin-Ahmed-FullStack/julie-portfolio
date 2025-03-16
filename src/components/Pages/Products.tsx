@@ -5,8 +5,9 @@ import { DarkDiv } from '../ui/DarkDiv';
 import { ArtPieceType } from '../../types';
 import { useEffect, useState } from "react";
 import LoadingPage from "./LoadingPage";
-import ArtItemBox from "../ui/ArtItemBox";
 import { useArt } from "../../hooks/FetchArt";
+import ArtItemMUI from "../ui/ArtItemMUI";
+// import MasonryGallery from "./MasionaryComponent";
 
 export default function Products() {
     const [artType, setArtType] = useState("undefined");
@@ -87,9 +88,10 @@ export default function Products() {
             <DarkDiv className="mt-5 container">
                 <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 items-stretch">
                     {data.map((item: ArtPieceType) => (
-                        <ArtItemBox key={item._id} _id={item._id} type={item.type} className="my-2" Name={item.title} Icon={item.coverImage} note={item.note} price={1000} />
+                        <ArtItemMUI key={item._id} _id={item._id} type={item.type} className="my-2" Name={item.title} Icon={item.coverImage} note={item.note} price={1000} />
                     ))}
                 </div>
+                {/* <MasonryGallery /> */}
                 {/* <Masonry columns={{ xs: 2,sm:3, md: 4 }} spacing={2}> */}
 
                 {/* {data.map((item: ArtPieceType) => (

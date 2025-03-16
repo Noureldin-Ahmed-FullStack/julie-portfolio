@@ -80,10 +80,10 @@ export default function ArtItemBox(props: props) {
 
         return (
             <CardContainer className={"w-full grow flex flex-col" + className}>
-                <CardBody className="grow flex flex-col transition-all w-full ease-in bg-zinc-100 bg-opacity-100 dark:bg-opacity-30 dark:bg-black relative dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] sm:w-[30rem] h-auto rounded-xl p-3 border ">
+                <CardBody className="grow flex flex-col transition-all w-full ease-in bg-zinc-100 bg-opacity-100 dark:bg-opacity-30 dark:bg-black relative dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] sm:w-[30rem] h-auto rounded-xl border ">
                     <Grid direction={"column"} container className="justify-between grow">
                         <Grid sx={{ width: "100%" }} size={3}>
-                            <CardItem
+                            {/* <CardItem
                                 translateZ="50"
                                 className="text-xl font-bold text-neutral-600 dark:text-white flex justify-between w-full"
                             >
@@ -97,17 +97,16 @@ export default function ArtItemBox(props: props) {
                             >
                                 <div>{type}</div>
                                 <div className="flex items-end">4.6<StarBorderIcon />{ratings?.length}</div>
-
-                            </CardItem>
+                            </CardItem> */}
                         </Grid>
 
                         <Grid sx={{ width: "100%" }} size={6}>
-                            <CardItem translateZ="100" className="w-full mt-4">
+                            <CardItem translateZ="100" className="w-full">
                                 <img
                                     src={Icon}
                                     // className="h-100 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
                                     loading="lazy"
-                                    className="w-full object-contain rounded-xl group-hover/card:shadow-xl"
+                                    className="w-full max-h-60 object-contain rounded-t-lg rounded-xl group-hover/card:shadow-xl"
                                     alt="thumbnail"
                                 />
 
@@ -120,7 +119,7 @@ export default function ArtItemBox(props: props) {
                                 translateZ="60"
                                 className="w-full justify-between text-neutral-500 text-sm mt-2 dark:text-neutral-300"
                             >
-                                <div className="mb-5">{note}</div>
+                                <div className="mb-5 line-clamp-3">{note}</div>
 
                                 <Link to={"/artpiece/" + _id} className="border px-4 py-1 rounded-lg border-gray-500 text-slate-700">
                                     Explore

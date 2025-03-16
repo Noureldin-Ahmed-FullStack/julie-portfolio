@@ -7,7 +7,7 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 import AddArtsButton from "../Pages/AddArtsButton";
 export default function TailwindNavbar() {
     const [isOpen, setIsOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(true);
 
     useEffect(() => {
         const handleScroll = () => {
