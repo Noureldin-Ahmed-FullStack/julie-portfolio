@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import LoadingPage from "./LoadingPage";
 import { useArt } from "../../hooks/FetchArt";
 import ArtItemMUI from "../ui/ArtItemMUI";
+import ErrorPage from "./ErrorPage";
 // import MasonryGallery from "./MasionaryComponent";
 
 export default function Products() {
@@ -26,7 +27,7 @@ export default function Products() {
         setArtTitle(titleValue)
 
     };
-    const { data, isLoading, refetch } = useArt(artType, ArtTitle)
+    const { data, isLoading, refetch ,isError } = useArt(artType, ArtTitle)
 
     // 🔄 Automatically refetch when ArtTitle or artType changes
     useEffect(() => {
@@ -35,6 +36,11 @@ export default function Products() {
         refetch();
     }, [ArtTitle, artType, refetch]);
     console.log(data)
+    if (isError) {
+        return (
+            <ErrorPage />
+        )
+    }
     if (isLoading) {
         return (
             <LoadingPage />

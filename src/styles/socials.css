@@ -33,12 +33,12 @@
     color: #40a7e3;
 }
 
-
 .InstaBG {
-    position: relative;
+    position: relative; /* Ensures the icon and pseudo-element are properly layered */
     border-radius: 1rem;
     cursor: pointer;
-    transition: background 0.3s ease; /* Transition base background */
+    transition: background 0.3s ease;
+    overflow: hidden; /* Prevents any weird background bleeding */
 }
 
 .InstaBG::before {
@@ -59,11 +59,16 @@
                 linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
-    z-index: -1; /* Ensure it sits behind any content */
+    z-index: 0; /* Keeps it below the content */
 }
 
 .InstaBG:hover::before {
     opacity: 1;
+}
+
+.MyLink {
+    position: relative; /* Ensures the icon stays above */
+    z-index: 1; /* Higher than ::before */
 }
 
 .MailLink:hover {

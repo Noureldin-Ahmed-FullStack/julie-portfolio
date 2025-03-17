@@ -20,6 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Favouritespage from './components/Pages/Favouritespage.tsx'
 import ArtDetailsPage from './components/Pages/ArtDetailsPage.tsx'
 import SocialPage from './components/Pages/SocialPage.tsx'
+import Products from './components/Pages/Products.tsx'
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
 if (!PUBLISHABLE_KEY) {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/home", element: <HomePage /> },
       { path: "/Julie", element: <HomePage /> },
+      { path: "/browse", element: <CenteredPage className="my-10"><Products /></CenteredPage> },
       { path: "/blog", element: <SocialPage /> },
       { path: "/artpiece/:artID", element: <ArtDetailsPage /> },
       { path: "/favourites", element: <Favouritespage /> },

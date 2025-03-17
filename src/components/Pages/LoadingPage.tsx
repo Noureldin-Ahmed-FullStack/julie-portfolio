@@ -7,10 +7,10 @@ export default function LoadingPage() {
 
     return (
         <CenteredPage>
-            <h4 className="text-6xl mb-5 text-orange-700 dark:text-zinc-200 font-medium agu-display">
+            <h4 className="text-9xl mb-5 text-blue-700 dark:text-zinc-200 font-medium agu-display ">
                 Loading
             </h4>
-            <GridLoader size={25} color={theme === 'dark' ? 'white' : 'orange'} />
+            <GridLoader size={25} color={theme === 'dark' ? 'white' : '#1d4ed8  '} />
         </CenteredPage>
     )
 }

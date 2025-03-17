@@ -1,48 +1,68 @@
-import InstagramIcon from '@mui/icons-material/Instagram';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import TelegramIcon from '@mui/icons-material/Telegram';
-import { Grid, Zoom, Tooltip } from '@mui/material';
+
+import { FaTiktok } from "react-icons/fa";
+import { Zoom, Tooltip } from '@mui/material';
+import { BiLogoInstagram } from "react-icons/bi";
+import { CiMail } from "react-icons/ci";
+import { FaWhatsapp } from "react-icons/fa";
+
+
+
 export default function SocialsSegment() {
   return (
     <div className='w-100 justify-content-center d-flex'>
-      <Grid sx={{ bottom: "3.5rem" }} container justifyContent={"center"} alignItems={"center"} spacing={7}>
-        <Grid item justifyContent={"center"}>
-          <div className='InstaBG'>
-            <a href="https://www.instagram.com/ahmed_russianguide_cairo_egypt" target='_blank'>
+      <div className='grid grid-cols-2 sm:grid-cols-4 gap-8'>
+        {/* <Grid className="">
+          <div className='InstaBG w-fit mx-auto'>
+            <a href="https://www.instagram.com/" className='group' target='_blank'>
               <Tooltip arrow followCursor={true} placement='top' TransitionComponent={Zoom} title={"Instagram"}>
-                <InstagramIcon className='MyLink' sx={{ fontSize: "1.5rem" }} />
+                <BiLogoInstagram className=' group-hover:!text-6xl transition-all duration-150 ease-in-out MyLink !z-10 !text-4xl sm:text-5xl' />
               </Tooltip>
             </a>
           </div>
-        </Grid>
-        {/* <Grid item>
+          <p className='playwrite font-extrabold text-zinc-200 text-center mt-5'>Instagram</p>
+        </Grid> */}
+        {/* <Grid>
           <a className='MyLink FBLink'>
-            <FacebookIcon className='' sx={{ fontSize: "1.5rem" }} />
+            <FacebookIcon className='' sx={{ fontSize: "3rem" }} />
           </a>
         </Grid> */}
-        <Grid item>
-          <a className='MyLink MailLink' href="mailto:noureldin2662002@gmail.com" target='_blank'>
+        <div className="">
+          <Tooltip arrow followCursor={true} placement='top' TransitionComponent={Zoom} title={"Instagram"}>
+            <div className="InstaBG w-fit mx-auto">
+               <a className='MyLink flex group justify-center ' href="https://www.instagram.com/artbyjulieulfeng/" target='_blank'>
+              <BiLogoInstagram className='text-zinc-200 group-hover:!text-6xl transition-all duration-150 ease-in-out !text-4xl sm:text-5xl' />
+            </a>
+            </div>
+           
+          </Tooltip>
+          <p className='playwrite font-extrabold text-zinc-200 text-center mt-5'>Instagram</p>
+        </div>
+        <div className="">
           <Tooltip arrow followCursor={true} placement='top' TransitionComponent={Zoom} title={"Mail me"}>
-            <MailOutlineIcon className='' sx={{ fontSize: "1.5rem" }} />
-            </Tooltip>
-          </a>
-        </Grid>
-        <Grid item>
-          <a className='MyLink whatsAppLink' target='_blank' href='https://wa.me/201117900555'>
+            <a className='MyLink flex group justify-center MailLink' href="mailto:Julie_lazuli@hotmail.com" target='_blank'>
+              <CiMail className=' group-hover:!text-6xl transition-all duration-150 ease-in-out !text-4xl sm:text-5xl' />
+            </a>
+          </Tooltip>
+          <p className='playwrite font-extrabold text-zinc-200 text-center mt-5'>Mail</p>
+        </div>
+
+        <div className="">
           <Tooltip arrow followCursor={true} placement='top' TransitionComponent={Zoom} title={"WhatsApp"}>
-            <WhatsAppIcon className='' sx={{ fontSize: "1.5rem" }} />
-            </Tooltip>
-          </a>
-        </Grid>
-        <Grid item>
-          <a className='MyLink TeleLink' target='_blank' href='https://t.me/NoureldinAhmedFullstack'>
-          <Tooltip arrow followCursor={true} placement='top' TransitionComponent={Zoom} title={"Telegram"}>
-            <TelegramIcon className='' sx={{ fontSize: "1.5rem" }} />
-            </Tooltip>
-          </a>
-        </Grid>
-      </Grid>
+            <a className='MyLink group flex justify-center whatsAppLink' target='_blank' href='https://wa.me/+4798133055'>
+              <FaWhatsapp className=' group-hover:!text-6xl transition-all duration-150 ease-in-out !text-4xl sm:text-5xl' />
+            </a>
+          </Tooltip>
+          <p className='playwrite font-extrabold text-zinc-200 text-center mt-5'>WhatsApp</p>
+        </div>
+        <div className="">
+          <Tooltip arrow followCursor={true} placement='top' TransitionComponent={Zoom} title={"TikTok"}>
+            <a className='flex justify-center group' target='_blank' href='https://www.tiktok.com/@artbyjulieulfeng?_t=ZN-8ulpfXpMz02&_r=1'>
+              <FaTiktok className='group-hover:bg-black/75 group-hover:text-white transition-all duration-300 text-white rounded-md !text-4xl sm:text-5xl group-hover:!text-6xl' />
+            </a>
+          </Tooltip>
+          <p className='playwrite font-extrabold text-zinc-200 text-center mt-5'>TikTok</p>
+        </div>
+      </div>
     </div>
   )
 }
