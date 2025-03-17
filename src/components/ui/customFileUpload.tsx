@@ -4,6 +4,7 @@ import { useDropzone } from 'react-dropzone';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ImageIcon from '@mui/icons-material/Image';
+import imageCompression from 'browser-image-compression';
 
 // Define a type for the onChange prop
 interface FileUploadProps {
@@ -44,9 +45,25 @@ const FileUpload: React.FC<FileUploadProps> = ({ onChange }) => {
     });
     handleClose();
   }, [handleClose]);
-
-  const handleFileChange = useCallback((newFiles: File[]) => {
-    setFiles((prevFiles) => [...prevFiles, ...newFiles]);
+  const handleImageCompression = async (file: File) => {
+    const options = {
+      maxSizeMB: 1, // (e.g., 1 MB)
+      maxWidthOrHeight: 1024, // (e.g., resize to 1024px max)
+      useWebWorker: true,
+    };
+  
+    try {
+      const compressedFile = await imageCompression(file, options);
+      return compressedFile;
+    } catch (error) {
+      console.error('Compression error:', error);
+      return file; // Return the original file if compression fails
+    }
+  };
+  
+  const handleFileChange = useCallback(async (newFiles: File[]) => {
+    const compressedFiles = await Promise.all(newFiles.map(handleImageCompression));
+    setFiles((prevFiles) => [...prevFiles, ...compressedFiles]);
   }, []);
 
   useEffect(() => {
