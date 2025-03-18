@@ -19,7 +19,7 @@ export default function TailwindNavbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const pages = ['home', 'browse', 'blog', 'about'];
+    const pages = ['home', 'browse', 'blog', 'favourites', 'about'];
     const { currentPath } = useAppContext();
 
     return (

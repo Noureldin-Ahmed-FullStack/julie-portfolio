@@ -1,10 +1,9 @@
-import { Button, MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
-import Grid from '@mui/material/Grid2';
-import { NiceDiv } from '../ui/NiceDiv';
+import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { DarkDiv } from '../ui/DarkDiv';
 import { ArtPieceType } from '../../types';
 import { useEffect, useState } from "react";
 import LoadingPage from "./LoadingPage";
+import Grid from '@mui/material/Grid2'; 
 import { useArt } from "../../hooks/FetchArt";
 import ArtItemMUI from "../ui/ArtItemMUI";
 import ErrorPage from "./ErrorPage";
@@ -12,29 +11,37 @@ import ErrorPage from "./ErrorPage";
 
 export default function Products() {
     const [artType, setArtType] = useState("undefined");
-    const [search, setSearch] = useState('');
-    const handleArtTypeChange = (event: SelectChangeEvent) => {
-        setArtType(event.target.value as string);
-    };
-    const [ArtTitle, setArtTitle] = useState("undefined")
-    const searchFunc = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const target = e.target as HTMLFormElement;
-        const titleValue = (target.elements[0] as HTMLInputElement).value;
-        const category = (target.elements[2] as HTMLInputElement).value;
-        console.log(titleValue, category);
+    // const [search, setSearch] = useState('');
+    // const handleArtTypeChange = (event: SelectChangeEvent) => {
+    //     setArtType(event.target.value as string);
+    // };
 
-        setArtTitle(titleValue)
-
+    const handleChange = (
+        _event: React.MouseEvent<HTMLElement>,
+        newAlignment: string,
+    ) => {
+        setArtType(newAlignment);
     };
-    const { data, isLoading, refetch ,isError } = useArt(artType, ArtTitle)
+
+    // const [ArtTitle, setArtTitle] = useState("undefined")
+    // const searchFunc = (e: React.FormEvent<HTMLFormElement>) => {
+    //     e.preventDefault();
+    //     const target = e.target as HTMLFormElement;
+    //     const titleValue = (target.elements[0] as HTMLInputElement).value;
+    //     const category = (target.elements[2] as HTMLInputElement).value;
+    //     console.log(titleValue, category);
+
+    //     setArtTitle(titleValue)
+
+    // };
+    const { data, isLoading, refetch, isError } = useArt(artType)
 
     // 🔄 Automatically refetch when ArtTitle or artType changes
     useEffect(() => {
-        console.log(ArtTitle, artType, data);
+        console.log(artType, data);
 
         refetch();
-    }, [ArtTitle, artType, refetch]);
+    }, [artType, refetch]);
     console.log(data)
     if (isError) {
         return (
@@ -48,49 +55,41 @@ export default function Products() {
     }
     return (
         <>
-            <NiceDiv className="md:!w-3/4 !w-full mt-5">
-                <form onSubmit={searchFunc}>
-                    <Grid container className="justify-between" spacing={2}>
-                        <Grid size={6}>
-                            <TextField
-                                value={search} // Set the value of the TextField to the state
-                                onChange={(e) => setSearch(e.target.value)}
-                                fullWidth
-                                id="search"
-                                name="search"
-                                placeholder="example: cat ;)"
-                                label="search"
-                            />
-                        </Grid>
-                        <Grid size={6}>
-                            <div className="flex items-center">
-                                <div><p className="w-20">Filter By:</p></div>
-                                <Select
-                                    required
-                                    className="overflow-hidden"
-                                    labelId="type"
-                                    id="type"
-                                    variant='outlined'
-                                    fullWidth
-                                    name="type"
-                                    value={artType}
-                                    label="type"
-                                    onChange={handleArtTypeChange}
-                                >
-                                    <MenuItem value={'undefined'}>select Category</MenuItem>
-                                    <MenuItem value={'general'}>General Art</MenuItem>
-                                    <MenuItem value={'cartoon_characters'}>Cartoon characters</MenuItem>
-                                    <MenuItem value={'realism'}>Realism</MenuItem>
-                                    <MenuItem value={'animals'}>animals</MenuItem>
-                                    <MenuItem value={'historical_icons'}>Historical icons</MenuItem>
-                                </Select>
-                            </div>
-                        </Grid>
-                    </Grid>
-                    <Button type="submit" fullWidth variant="outlined" className="!mt-2">Search</Button>
-                </form>
 
-            </NiceDiv>
+            <div className="flex flex-col justify-center items-center playwrite w-full">
+                <Grid container spacing={3} className="items-center w-3/5 my-5">
+                    <Grid size="grow" className="justify-center">
+                        <a className="flex justify-center" href="https://www.flaticon.com/free-icons/flower" title="flower icons"><img className='!w-9 !h-9' src="https://res.cloudinary.com/dqijwldax/image/upload/v1742256773/Julie/succulent_jegahu.png" alt="www.flaticon.com" /></a>
+                    </Grid>
+                    <Grid size={10}>
+                        <h1 className="text-center mx-5">My Artworks</h1>
+                    </Grid>
+                    <Grid size="grow" className="justify-center">
+                        <a className="flex justify-center" href="https://www.flaticon.com/free-icons/flower" title="flower icons"><img className='w-9 h-9 flip-x' src="https://res.cloudinary.com/dqijwldax/image/upload/v1742256773/Julie/succulent_jegahu.png" alt="www.flaticon.com" /></a>
+                    </Grid>
+                </Grid>
+                <ToggleButtonGroup
+                    color="primary"
+                    value={artType}
+                    exclusive
+                    onChange={handleChange}
+                    aria-label="Platform"
+                    sx={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        gap: 1, // Adds spacing between buttons
+                        justifyContent: "center",
+                    }}
+                >
+                    <ToggleButton value={'undefined'}><p className="crimson-pro">All art works</p></ToggleButton>
+                    <ToggleButton value={'general'}><p className="crimson-pro">General Art</p></ToggleButton>
+                    <ToggleButton value={'cartoon_characters'}><p className="crimson-pro">Cartoon characters</p></ToggleButton>
+                    <ToggleButton value={'realism'}><p className="crimson-pro">Realism</p></ToggleButton>
+                    <ToggleButton value={'animals'}><p className="crimson-pro">animals</p></ToggleButton>
+                    <ToggleButton value={'historical_icons'}><p className="crimson-pro">Historical icons</p></ToggleButton>
+                </ToggleButtonGroup>
+            </div>
+
             <DarkDiv className="mt-5 container">
                 <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
                     {data.map((item: ArtPieceType) => (

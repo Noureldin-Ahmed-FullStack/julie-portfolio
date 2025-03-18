@@ -21,7 +21,8 @@ function App() {
   const { data, isFetching, isLoading } = useFavs(userData?._id)
 
   useEffect(() => {
-    // console.log(data?.items, !isLoading, !isFetching, userData);
+    console.log(data?.items, !isLoading, !isFetching, userData);
+    setfavsLoading(true)
 
     if (data?.items && !isLoading && !isFetching && userData) {
       setfavsList(data.items);
@@ -33,7 +34,7 @@ function App() {
       setfavsLoading(false)
       // console.log(data.items);
     }
-  }, [data, setfavsList])
+  }, [data, setfavsList,isLoading])
 
     const location = useLocation();
 

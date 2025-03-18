@@ -1,50 +1,59 @@
-import { GridLoader } from "react-spinners";
 // import { useFavs } from "../../hooks/FetchFields";
-import { useThemeStore } from "../../context/ThemeContext";
 import CenteredPage from "../CenteredPage";
-import FieldItem from "../ui/ArtItem";
-import FieldItemBox from "../ui/ArtItemBox";
 import KeyboardTabIcon from '@mui/icons-material/KeyboardTab';
 import { Link } from "react-router-dom";
 import { useUserFavsContext } from "../../context/UserContext";
-import { response } from "../../types";
+import { ArtPieceType } from "../../types";
+import LoadingPage from "./LoadingPage";
+import Grid from '@mui/material/Grid2';
+import ArtItemMUI from "../ui/ArtItemMUI";
+import { DarkDiv } from "../ui/DarkDiv";
 interface FavouritesPageProps {
     className?: string; // Optional className prop
 }
 export default function Favouritespage({ className }: FavouritesPageProps) {
     // const { userData } = useUserContext()
+
     const { favsList, favsLoading } = useUserFavsContext()
-    const { theme } = useThemeStore();
     // console.log(data?.items)
     if (favsLoading) {
         return (
-            <CenteredPage>
-                <h4 className="text-6xl mb-5 text-orange-700 dark:text-zinc-200 font-medium agu-display">Loading</h4>
-                <GridLoader size={25} color={theme == 'dark' ? 'white' : 'orange'} />
-            </CenteredPage>
+            <LoadingPage />
         )
     }
     return (
-        <div className={"flex mx-auto grow justify-center md:pt-4 maxWidth75vw " +className}>
-            {favsList?.length != 0 ? (
-                <>
-                    <div className="static md:hidden">
-                        {favsList?.map((item: response) => (
-                            <FieldItem _id={item._id} key={item._id} type={item.type} className="my-2" Name={item.title} Icon={item.coverImage} location={item.location} price={item.price} />
-                        ))}
-                    </div>
-                    <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-3 gap-4">
-                        {favsList?.map((item: response) => (
-                            <FieldItemBox _id={item._id} key={item._id} type={item.type} className="my-2" Name={item.title} Icon={item.coverImage} price={item.price} note=""/>
-                        ))}
-                    </div>
-                </>) : (
-                <CenteredPage className="">
-                    <h4 className="text-6xl mb-5 text-center text-orange-700 dark:text-zinc-200 font-medium agu-display">You have no favourites</h4>
-                    <Link to="/"><p className="underline underline-offset-4 text-3xl mb-5 text-center text-blue-600 text-opacity-70 font-medium">Browse <KeyboardTabIcon /></p></Link>
-                </CenteredPage>
-            )}
 
+        <div className="flex flex-col justify-center items-center playwrite">
+            <div className="flex items-center mt-12 bg-blue-800">
+            </div>
+            <Grid container className="items-center w-3/5">
+                <Grid size="grow" className="justify-center">
+                    <a className="flex justify-center" href="https://www.flaticon.com/free-icons/flower" title="flower icons"><img className='!w-9 !h-9' src="https://res.cloudinary.com/dqijwldax/image/upload/v1742256773/Julie/succulent_jegahu.png" alt="www.flaticon.com" /></a>
+                </Grid>
+                <Grid size={6}>
+                    <h1 className="text-center mx-5">Your Favourited Artworks</h1>
+                </Grid>
+                <Grid size="grow" className="justify-center">
+                    <a className="flex justify-center" href="https://www.flaticon.com/free-icons/flower" title="flower icons"><img className='w-9 h-9 flip-x' src="https://res.cloudinary.com/dqijwldax/image/upload/v1742256773/Julie/succulent_jegahu.png" alt="www.flaticon.com" /></a>
+                </Grid>
+            </Grid>
+            <DarkDiv className="mt-12 container">
+                <div className={"flex mx-auto grow justify-center md:pt-4 maxWidth75vw " + className}>
+                    {favsList?.length != 0 ? (
+                        <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+                            {favsList.map((item: ArtPieceType) => (
+                                <ArtItemMUI key={item._id} _id={item._id} type={item.type} className="my-2" Name={item.title} Icon={item.coverImage} note={item.note} price={1000} />
+                            ))}
+                        </div>
+                    ) : (
+                        <CenteredPage className="">
+                            <h4 className="text-6xl mb-5 text-center text-blue-700 dark:text-zinc-200 font-medium agu-display">Favourites are empty</h4>
+                            <Link to="/"><p className="underline underline-offset-4 text-3xl mb-5 text-center text-blue-600 text-opacity-70 font-medium">go back home<KeyboardTabIcon /></p></Link>
+                        </CenteredPage>
+                    )}
+
+                </div>
+            </DarkDiv>
         </div>
     )
 }
