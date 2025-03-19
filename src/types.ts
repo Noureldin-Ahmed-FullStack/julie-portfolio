@@ -51,6 +51,7 @@ export interface ArtPieceType {
     ratings: [rating]
     coverImage: string
     note: string
+    status: string
     price: number
     type: 'general' | 'cartoon_characters' | 'animals' | 'realism' | 'historical_icons'
     title: string

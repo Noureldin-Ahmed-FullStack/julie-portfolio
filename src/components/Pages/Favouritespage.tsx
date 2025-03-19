@@ -42,7 +42,7 @@ export default function Favouritespage({ className }: FavouritesPageProps) {
                     {favsList?.length != 0 ? (
                         <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
                             {favsList.map((item: ArtPieceType) => (
-                                <ArtItemMUI key={item._id} _id={item._id} type={item.type} className="my-2" Name={item.title} Icon={item.coverImage} note={item.note} price={1000} />
+                                <ArtItemMUI key={item._id} _id={item._id} type={item.type} className="my-2" Name={item.title} Icon={item.coverImage} note={item.note} price={1000} status={item.status}/>
                             ))}
                         </div>
                     ) : (

@@ -253,7 +253,7 @@ export default function ArtPeiceEditButton(props: props) {
                     />
                 </div>
             </CustomDialog>
-            <Tooltip title="Edit Field info" followCursor>
+            <Tooltip title="Edit Art info" followCursor>
                 <IconButton onClick={handleOpenDialog} aria-label="delete" color="info">
                     <EditIcon />
                 </IconButton>

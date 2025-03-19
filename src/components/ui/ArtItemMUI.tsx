@@ -20,11 +20,12 @@ interface props {
     Icon: string,
     price: number,
     note: string,
+    status: string,
     ratings?: ratings[],
     className?: string
 }
 export default function ArtItemMUI(props: props) {
-    const { Icon, Name, note, _id, type } = props
+    const { Icon, Name, note, _id, type ,status} = props
     const { userData } = useUserContext();
     const { favsList } = useUserFavsContext();
     const queryClient = useQueryClient();
@@ -84,7 +85,8 @@ export default function ArtItemMUI(props: props) {
                 />
 
                 <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:pb-8 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-between p-4">
-                    <div className='w-full flex justify-end'>
+                    {status == 'sold' && <div className='bg-slate-200 text-zinc-900 absolute left-0 top-12 px-5 py-2 rounded-e'><p className='crimson-pro text-xl capitalize'>sold</p></div>}
+                    <div className='w-full flex justify-end '>
                         {favContains(_id) ? <Tooltip title="Remove from Favourites" followCursor>
                             <IconButton onClick={() => removeFav(userData?._id, _id)} className='!text-red-700 dark:!text-inherit' sx={{ marginRight: "-10px" }} aria-label="add to Favourites">
                                 <FavoriteIcon className="cursor-pointer" /></IconButton></Tooltip> : <Tooltip title="Add to Favourites" followCursor>

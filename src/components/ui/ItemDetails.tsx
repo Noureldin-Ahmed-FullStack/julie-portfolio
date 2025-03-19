@@ -8,6 +8,7 @@ import ArtPeiceEditButton from "./ArtPeiceEditButton";
 import { useUserContext } from "../../context/UserContext";
 import { ArtPieceType } from "../../types";
 import DeleteArtButton from "./DeleteArtButton";
+import MarkAsSoldButton from "./MarkAsSoldButton";
 
 export const ItemDetails = ({
   item,
@@ -114,6 +115,7 @@ export const ItemDetails = ({
             <h3 className="text-2xl font-bold dark:text-white text-black">
               {item.title}
               {userData && (userData?.role == 'admin') && <ArtPeiceEditButton FieldData={item} userData={userData} />}
+              {userData && (userData?.role == 'admin') && <MarkAsSoldButton FieldData={item} userData={userData} />}
 
             </h3>
             <p className="text-sm text-gray-500 dark:text-neutral-500">
@@ -146,7 +148,7 @@ export const ItemDetails = ({
             </motion.p>
             <p className="mb-2">Tags:</p>
             {item.tags.map((tag, index) => (
-              <Chip clickable key={index} className="!me-2" color="warning" label={tag} />
+              <Chip clickable key={index} className="!me-2" color="primary" label={tag} />
             ))}
           </motion.div>
           <div className="flex gap-4 pt-12 md:pt-0">

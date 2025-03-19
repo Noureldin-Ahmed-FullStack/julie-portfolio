@@ -86,8 +86,8 @@ export default function ArtDetailsPage() {
     } else {
         return (
             <CenteredPage>
-                <h4 className="text-7xl mb-5 text-center text-orange-700 dark:text-zinc-200 font-medium agu-display">Loading</h4>
-                <GridLoader size={25} color={theme == 'dark' ? 'white' : 'orange'} />
+                <h4 className="text-7xl mb-5 text-center text-blue-700 dark:text-zinc-200 font-medium agu-display">Loading</h4>
+                <GridLoader size={25} color={theme == 'dark' ? 'white' : 'blue'} />
             </CenteredPage>
         )
     }
