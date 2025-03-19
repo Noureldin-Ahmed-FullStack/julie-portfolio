@@ -1,14 +1,13 @@
 
 import HeroSegment from "./HeroSegment";
 import ArtPhilosophy from "./Pages/ArtPhilosophy";
-import Connect from "./Pages/Connect";
 import CusomJobs from "./Pages/CusomJobs";
 import WhoAmI from "./WhoAmI";
 // import Products from "./Pages/Products";
 
 
 export default function HomePage() {
-   
+
     return (
         <div className="flex flex-col grow items-center">
             <div className="flex flex-col w-full grow items-center ">
@@ -17,11 +16,14 @@ export default function HomePage() {
                     <HeroSegment />
 
                 </div>
+                <div className="mt-12 text-center crimson-pro flex flex-col items-center">
+                    <h3 className="font-serif text-slate-800 text-2xl">“Art is not what you see, but what you make others see.” </h3>
+                    <p className=" text-slate-500">Edgar Degas</p>
+                </div>
                 <WhoAmI />
                 <CusomJobs />
                 <ArtPhilosophy />
-                <Connect />
-               {/* <Products /> */}
+                {/* <Products /> */}
             </div>
         </div>
     )

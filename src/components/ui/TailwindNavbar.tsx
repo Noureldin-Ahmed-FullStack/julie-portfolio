@@ -94,7 +94,7 @@ export default function TailwindNavbar() {
                         <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             {pages.map((item, index) => (
                                 <li key={index} className="group myCssLink capitalize">
-                                    <Link to={item} className={`group-hover:bg-cream/10 duration-300 transition-all block py-2 px-3 rounded-sm md:p-0 text-white md:bg-transparent md:text-cream ` + (currentPath == '/' + item ? 'bg-cream md:bg-transparent' : '')}><span className={"md:group-hover:bg-transparent text-white group-hover:text-cream " + (currentPath == '/' + item ? 'md:text-cream underline underline-offset-4 text-blue-900 hover:text-blue-800' : '')}>{item}</span> </Link>
+                                    <Link to={item} className={`group-hover:bg-cream/10 duration-300 transition-all block py-2 px-3 rounded-sm md:p-0 text-white md:bg-transparent md:text-cream ` + (currentPath == '/' + item ? 'bg-cream/80 md:bg-transparent' : '')}><span className={"md:group-hover:bg-transparent text-white group-hover:text-cream " + (currentPath == '/' + item ? 'md:text-cream underline underline-offset-4 text-blue-900 hover:text-blue-800' : '')}>{item}</span> </Link>
 
                                     {/* <Link to={"/"+item} className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">{item}</Link> */}
                                 </li>

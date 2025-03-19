@@ -7,6 +7,13 @@ export interface SocialPost {
     Images?: string[]
     _id?: string
 }
+export interface userType {
+    name: string,
+    _id: string,
+    userPFP: string,
+    email: string,
+    role: 'user' | 'admin' | 'owner' | 'dev'
+  }
 export interface UserData {
     email: string
     _id: string

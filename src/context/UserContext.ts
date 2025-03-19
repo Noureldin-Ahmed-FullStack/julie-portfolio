@@ -1,14 +1,13 @@
 
 import { create } from "zustand";
-import { ArtPieceType } from "../types";
-interface userType {
-  name: string,
-  _id: string,
-  userPFP: string,
-  email: string,
-  About?: string
-  role: string
-}
+import { ArtPieceType, userType } from "../types";
+// interface userType {
+//   name: string,
+//   _id: string,
+//   userPFP: string,
+//   email: string,
+//   role: string
+// }
 interface userState {
   userData: userType | null;
   setUserData: (user: userType | null) => void;

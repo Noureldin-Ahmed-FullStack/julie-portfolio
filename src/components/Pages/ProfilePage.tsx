@@ -37,7 +37,6 @@ export default function ProfilePage() {
                 <p className='break-all'>username: {userData?.name}</p>
                 <p className='break-all'>email: {userData?.email}</p>
                 {userData?.role != "user" && <p className='break-all'>Role:  {userData?.role}</p>}
-                <p className='break-all'>{userData?.About}</p>
               </Grid>
             </Grid>
           </NiceDiv>

@@ -62,7 +62,7 @@ export default function Products() {
                         <a className="flex justify-center" href="https://www.flaticon.com/free-icons/flower" title="flower icons"><img className='!w-9 !h-9' src="https://res.cloudinary.com/dqijwldax/image/upload/v1742256773/Julie/succulent_jegahu.png" alt="www.flaticon.com" /></a>
                     </Grid>
                     <Grid size={10}>
-                        <h1 className="text-center mx-5">My Artworks</h1>
+                        <h1 className="text-center mx-5">Gallery</h1>
                     </Grid>
                     <Grid size="grow" className="justify-center">
                         <a className="flex justify-center" href="https://www.flaticon.com/free-icons/flower" title="flower icons"><img className='w-9 h-9 flip-x' src="https://res.cloudinary.com/dqijwldax/image/upload/v1742256773/Julie/succulent_jegahu.png" alt="www.flaticon.com" /></a>

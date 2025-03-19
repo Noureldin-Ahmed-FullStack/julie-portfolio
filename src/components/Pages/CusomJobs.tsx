@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FlipWords } from "../ui/flip-words";
 import Reveal from "../ui/Reveal";
 
@@ -11,10 +12,10 @@ export default function CusomJobs() {
                     <Reveal className="flex items-center" width='full' direction='left'>
                         <div className="flex-col h-full flex justify-center">
                             <div className="w-5/6 lg:w-4/5">
-                                <h1 className="crimson-pro text-gray-300">Custom art inspired by your favourite <FlipWords words={['Character', 'Pet']} />.</h1>
+                                <h1 className="crimson-pro text-gray-300">Custom art inspired by your favourite <div className="relative overflow-hidden"><FlipWords words={['Character', 'Pet']} />.</div></h1>
                                 <h2 className="crimson-pro text-gray-300 font-bold my-3">Commision work</h2>
                                 <p className='karla text-gray-300/80 text-justify'>Do you have a favorite animal or character you'd love to see brought to life on canvas? Maybe a pet that holds a special place in your heart? Or you fell in love with an art piece in our shop, but it's already sold? You can now order your very own custom artwork, tailored to your vision!</p>
-                                <button className="w-60 mt-10 bg-zinc-300 hover:bg-zinc-100 transition-all duration-300 font-bold rounded-sm">Tell me more</button>
+                                <Link to="/about#custom"><button className="w-60 mt-10 bg-zinc-300 hover:bg-zinc-900 hover:text-zinc-100 text-zinc-900 hover:border-zinc-900 transition-all duration-300 font-bold rounded-sm hover:scale-110">Tell me more</button></Link>
                             </div>
                         </div>
                     </Reveal>
@@ -30,7 +31,8 @@ export default function CusomJobs() {
                             <h1 className="crimson-pro text-gray-300">Custom art inspired by your favourite Character or Pet.</h1>
                             <h2 className="crimson-pro text-gray-300 font-bold my-3">Commision work</h2>
                             <p className='karla text-gray-300/80 text-justify'>Do you have a favorite animal or character you'd love to see brought to life on canvas? Maybe a pet that holds a special place in your heart? Or you fell in love with an art piece in our shop, but it's already sold? You can now order your very own custom artwork, tailored to your vision!</p>
-                            <button className="w-full mt-10 bg-zinc-300 hover:bg-zinc-100 transition-all duration-300 font-bold rounded-sm">Tell me more</button>
+                            <Link to="/about#custom"><button className="w-60 mt-10 bg-zinc-300 hover:bg-zinc-900 hover:text-zinc-100 text-zinc-900 hover:border-zinc-900 transition-all duration-300 font-bold rounded-sm hover:scale-110">Tell me more</button></Link>
+
                         </div>
                     </div>
                     </Reveal>

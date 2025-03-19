@@ -4,23 +4,21 @@ import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArro
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import { useEffect, useState } from "react";
 import { Chip } from "@mui/material";
+import ArtPeiceEditButton from "./ArtPeiceEditButton";
+import { useUserContext } from "../../context/UserContext";
+import { ArtPieceType } from "../../types";
+import DeleteArtButton from "./DeleteArtButton";
 
-type props = {
-  note: string;
-  title: string;
-  type: string;
-  tags: string[];
-  Images: string[];
-};
 export const ItemDetails = ({
   item,
   autoplay = false,
 }: {
-  item: props;
+  item: ArtPieceType;
   autoplay?: boolean;
 }) => {
   const [active, setActive] = useState(0);
 
+  const { userData } = useUserContext();
   const handleNext = () => {
     setActive((prev) => (prev + 1) % item.Images.length);
   };
@@ -115,6 +113,8 @@ export const ItemDetails = ({
           >
             <h3 className="text-2xl font-bold dark:text-white text-black">
               {item.title}
+              {userData && (userData?.role == 'admin') && <ArtPeiceEditButton FieldData={item} userData={userData} />}
+
             </h3>
             <p className="text-sm text-gray-500 dark:text-neutral-500">
               {item.type}
@@ -165,6 +165,7 @@ export const ItemDetails = ({
           </div>
         </div>
       </div>
+        {userData && (userData?.role == 'admin') && <DeleteArtButton FieldData={item} userData={userData} />}
     </div>
   );
 };

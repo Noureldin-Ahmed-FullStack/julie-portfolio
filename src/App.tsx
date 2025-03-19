@@ -11,6 +11,7 @@ import { useFavs } from "./hooks/FetchArt";
 // import ResponsiveAppBar from "./components/ui/ResponsiveAppBar";
 import { useAppContext } from "./context/AppContext";
 import TailwindNavbar from "./components/ui/TailwindNavbar";
+import Connect from "./components/Pages/Connect";
 // import { FloatingNav } from "./components/ui/floating-navbar";
 function App() {
   const { userData, setUserData } = useUserContext();
@@ -104,6 +105,7 @@ function App() {
         {/* <FloatingNav navItems={[{link:"Home",name:"Home"},{link:"Blog",name:"Blog"},{link:"About-me",name:"About me"},]}/> */}
         {/* {(currentPath != "/" && currentPath != "/home") &&<FloatingNav navItems={navbarItems}/>} */}
         <Outlet />
+        <Connect />
       </ThemeProvider>
 
     </Box>

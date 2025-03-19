@@ -21,6 +21,8 @@ import Favouritespage from './components/Pages/Favouritespage.tsx'
 import ArtDetailsPage from './components/Pages/ArtDetailsPage.tsx'
 import SocialPage from './components/Pages/SocialPage.tsx'
 import Products from './components/Pages/Products.tsx'
+import AboutPage from './components/Pages/AboutPage.tsx'
+import Requests from './components/Pages/Requests.tsx'
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
 if (!PUBLISHABLE_KEY) {
@@ -36,8 +38,10 @@ const router = createBrowserRouter([
       { path: "/Julie", element: <HomePage /> },
       { path: "/browse", element: <CenteredPage className="my-10"><Products /></CenteredPage> },
       { path: "/blog", element: <SocialPage /> },
+      { path: "/requests", element: <Requests /> },
       { path: "/artpiece/:artID", element: <ArtDetailsPage /> },
       { path: "/favourites", element: <Favouritespage /> },
+      { path: "/about", element: <AboutPage /> },
       { path: "/sign-in", element: <CenteredPage className="my-10"><SignUp routing='hash' forceRedirectUrl={'/Julie'} /></CenteredPage> },
       { path: "/sign-up", element: <CenteredPage className="my-10"><SignIn routing='hash' forceRedirectUrl={'/Julie'} /></CenteredPage> },
       { path: "*", element: <CenteredPage><NotFoundPage /></CenteredPage> },

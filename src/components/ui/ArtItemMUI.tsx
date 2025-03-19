@@ -24,7 +24,7 @@ interface props {
     className?: string
 }
 export default function ArtItemMUI(props: props) {
-    const { Icon, Name, note, _id, type} = props
+    const { Icon, Name, note, _id, type } = props
     const { userData } = useUserContext();
     const { favsList } = useUserFavsContext();
     const queryClient = useQueryClient();
@@ -79,6 +79,7 @@ export default function ArtItemMUI(props: props) {
                 <img
                     src={Icon}
                     alt="Painting"
+                    loading='lazy'
                     className="w-full object-contain"
                 />
 
@@ -94,7 +95,7 @@ export default function ArtItemMUI(props: props) {
                         <p className="text-gray-300 text-sm line-clamp-3">{type}</p>
                         <p className="text-gray-300 text-sm line-clamp-3">{note}</p>
                         <Link to={"/artpiece/" + _id} className="!w-full block rounded-md mt-5 hover:text-black bg-white py-2 px-4  text-center text-sm text-slate-800 transition-all shadow-md hover:shadow-lg focus:bg-zinc-200 focus:shadow-none active:bg-zinc-200 hover:bg-zinc-200 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
-                           Explore
+                            Explore
                         </Link>
                     </div>
 

@@ -7,8 +7,8 @@ import { useThemeStore } from "../../context/ThemeContext";
 // import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 // import { motion } from "framer-motion";
-import { response } from "../../types";
 import { ItemDetails } from "../ui/ItemDetails";
+import { ArtPieceType } from "../../types";
 // import "slick-carousel/slick/slick-theme.css";
 // import Grid from '@mui/material/Grid2';
 // import StarRateIcon from '@mui/icons-material/StarRate';
@@ -20,7 +20,7 @@ export default function ArtDetailsPage() {
     const { artID } = useParams();
     const { theme } = useThemeStore();
     const { data } = useArtDetails(artID)
-    const [Art, setArt] = useState<response | "error">()
+    const [Art, setArt] = useState<ArtPieceType | "error">()
     useEffect(() => {
         console.log(artID);
         setArt(data)
