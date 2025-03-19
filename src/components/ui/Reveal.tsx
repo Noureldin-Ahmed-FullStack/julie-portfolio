@@ -56,7 +56,6 @@ export default function Reveal(props: props) {
                 {props.children}
             </motion.div>
             <motion.div
-                // variants={getSlideVariants(props.direction)}
                 variants={{
                     hidden: { top: 0 },
                     visible: { top: '100%' },
@@ -73,6 +72,7 @@ export default function Reveal(props: props) {
                     borderRadius: "3px",
                     background: "var(--brand)",
                     zIndex: 20,
+                    pointerEvents: "none", // Prevents blocking interactions
                 }}
             />
         </div >
