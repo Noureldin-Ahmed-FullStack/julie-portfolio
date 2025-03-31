@@ -23,7 +23,7 @@ export default function Favouritespage({ className }: FavouritesPageProps) {
     }
     return (
 
-        <div className="flex flex-col justify-center items-center playwrite">
+        <div className="flex flex-col justify-center items-center playwrite grow">
             <div className="flex items-center mt-12 bg-blue-800">
             </div>
             <Grid container className="items-center w-3/5">

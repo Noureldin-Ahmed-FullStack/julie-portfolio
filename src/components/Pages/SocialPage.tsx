@@ -34,7 +34,7 @@ export default function SocialPage() {
   console.log(data);
 
   return (
-    <div className="">
+    <div className="grow">
       <div className="mt-7 flex justify-center ">
         <div className="flex flex-col maxWidth50vw">
           {userData?._id ? <AddPost /> : <>{userData?._id}</>}

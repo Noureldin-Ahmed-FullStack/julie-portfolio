@@ -9,18 +9,19 @@ export default function AboutPage() {
     useEffect(() => {
         const hash = window.location.hash;
         if (hash) {
-          const element = document.querySelector(hash);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
+            const element = document.querySelector(hash);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
         }
-      }, []);
+    }, []);
     return (
         <div>
-            <div className="relative bg-gray-900 text-white text-center py-32">
+            <div className="relative bg-[url('https://res.cloudinary.com/dqijwldax/image/upload/v1743399207/Julie/julie_gbnctu.avif')] text-white text-center py-32">
+                <div className="absolute inset-0 bg-slate-900 bg-opacity-80"></div>
                 {/* Background and Text */}
-                <h2 className="text-2xl font-semibold">Custom art inspired by your favourite <div className="relative overflow-hidden"><FlipWords words={['Characters', 'Pet', 'Historical_icons']} /></div></h2>
-                <p className="uppercase text-sm tracking-wide text-gray-400">Commision Work</p>
+                <h2 className="text-2xl font-semibold z-20 relative">Custom art inspired by your favourite <div className="relative overflow-hidden"><FlipWords words={['Characters', 'Pet', 'Historical_icons']} /></div></h2>
+                <p className="uppercase text-sm tracking-wide z-20 relative text-gray-400">Commision Work</p>
 
                 {/* Circular Image */}
                 <div className="absolute left-1/2 -translate-x-1/2 bottom-0 -mb-12 w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
