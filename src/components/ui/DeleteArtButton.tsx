@@ -82,7 +82,7 @@ export default function DeleteArtButton(props: props) {
     return (
         <div className='mt-3'>
             <Button fullWidth variant="outlined" color='error' onClick={handleClickOpen}>
-                Delete Field
+                Delete Art work
             </Button>
             <Dialog
                 open={open}
@@ -94,7 +94,7 @@ export default function DeleteArtButton(props: props) {
                 <DialogTitle>{"Are you sure you want to delete this Field?"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="dialog-for-deleting-field">
-                        Deleting this field will perminatly remove it.
+                        Deleting this Art work will perminatly remove it.
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
