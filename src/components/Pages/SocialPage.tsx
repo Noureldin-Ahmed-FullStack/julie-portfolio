@@ -5,7 +5,7 @@ import AddPost from "../addPost";
 import { SinglePost } from "../ui/SinglePost";
 import { ScaleLoader } from 'react-spinners'
 import { Button } from "@mui/material";
-import CenteredPage from "../CenteredPage";
+// import CenteredPage from "../CenteredPage";
 // const postsArray: SocialPost[] = [{
 //   content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 // }, {
@@ -37,7 +37,7 @@ export default function SocialPage() {
   return (
     <div className="grow">
       <div className="mt-7 flex justify-center ">
-        <div className="flex flex-col maxWidth50vw">
+        <div className="flex flex-col maxWidth50vw ">
           {userData?._id && userData?.role == "admin" ? <AddPost /> : <></>}
           {isLoading ? (
             <div className="w-full flex justify-center items-center mt-32">

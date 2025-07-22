@@ -40,7 +40,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ imageUrls }) => {
                             <img
                                 src={image}
                                 alt={`image-${index}`}
-                                className={`w-full ${index < 1 ? 'h-56' : 'h-28'} object-cover cursor-pointer rounded-lg `}
+                                className={`w-full ${index < 1 ? 'h-full' : 'h-28'} object-cover cursor-pointer rounded-lg `}
                             />
                             {index == 3 && <div className="absolute w-full h-full top-0 flex items-center justify-center bg-black bg-opacity-50 text-white">
                                 <p className="font-bold text-4xl">+{imageUrls.length - 4}</p>

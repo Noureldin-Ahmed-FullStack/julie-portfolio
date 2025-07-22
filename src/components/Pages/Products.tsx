@@ -3,7 +3,7 @@ import { DarkDiv } from '../ui/DarkDiv';
 import { ArtPieceType } from '../../types';
 import { useEffect, useState } from "react";
 import LoadingPage from "./LoadingPage";
-import Grid from '@mui/material/Grid2';
+// import Grid from '@mui/material/Grid2';
 import { useArt } from "../../hooks/FetchArt";
 import ArtItemMUI from "../ui/ArtItemMUI";
 import ErrorPage from "./ErrorPage";

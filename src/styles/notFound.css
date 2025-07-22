@@ -86,7 +86,7 @@
 .maxWidth50vw {
   width: 100%;
   min-width: 340px;
-  max-width: 50vw;
+  max-width: 340px;
 }
 .maxWidth75vw {
   width: 100%;
