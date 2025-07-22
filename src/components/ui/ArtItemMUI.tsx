@@ -94,8 +94,8 @@ export default function ArtItemMUI(props: props) {
                     </div>
                     <div>
                         <h2 className="text-white text-2xl font-semibold">{Name}</h2>
-                        <p className="text-gray-300 text-sm line-clamp-3">{type}</p>
-                        <p className="text-gray-300 text-sm line-clamp-3">{note}</p>
+                        <p className="text-gray-300 text-sm line-clamp-2">{type}</p>
+                        <p className="text-gray-300 text-sm line-clamp-2">{note}</p>
                         <Link to={"/artpiece/" + _id} className="!w-full block rounded-md mt-5 hover:text-black bg-white py-2 px-4  text-center text-sm text-slate-800 transition-all shadow-md hover:shadow-lg focus:bg-zinc-200 focus:shadow-none active:bg-zinc-200 hover:bg-zinc-200 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
                             Explore
                         </Link>

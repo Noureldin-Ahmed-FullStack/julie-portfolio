@@ -5,6 +5,7 @@ import AddPost from "../addPost";
 import { SinglePost } from "../ui/SinglePost";
 import { ScaleLoader } from 'react-spinners'
 import { Button } from "@mui/material";
+import CenteredPage from "../CenteredPage";
 // const postsArray: SocialPost[] = [{
 //   content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 // }, {
@@ -30,14 +31,14 @@ import { Button } from "@mui/material";
 export default function SocialPage() {
   const { userData } = useUserContext()
   // const { data, isLoading } = useSocialPosts(1);
-  const { data, isLoading, fetchNextPage,hasNextPage } = useSocialPosts()
+  const { data, isLoading, fetchNextPage, hasNextPage } = useSocialPosts()
   console.log(data);
 
   return (
     <div className="grow">
       <div className="mt-7 flex justify-center ">
         <div className="flex flex-col maxWidth50vw">
-          {userData?._id ? <AddPost /> : <>{userData?._id}</>}
+          {userData?._id && userData?.role == "admin" ? <AddPost /> : <></>}
           {isLoading ? (
             <div className="w-full flex justify-center items-center mt-32">
               <ScaleLoader color="#212121" />
