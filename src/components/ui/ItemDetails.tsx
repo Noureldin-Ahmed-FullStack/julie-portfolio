@@ -172,10 +172,11 @@ export const ItemDetails = ({
             >
               <KeyboardDoubleArrowRightIcon className="h-5 w-5 !text-white dark:text-neutral-400 group-hover/button:-rotate-12 transition-all duration-1000" />
             </button>
+
           </div>
+            {userData && (userData?.role == 'admin') && <DeleteArtButton FieldData={item} userData={userData} />}
         </div>
       </div>
-      {userData && (userData?.role == 'admin') && <DeleteArtButton FieldData={item} userData={userData} />}
     </div>
   );
 };
