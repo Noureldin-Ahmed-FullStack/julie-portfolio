@@ -1,5 +1,8 @@
 
-import { AnimatePresence, motion } from "framer-motion";
+import {
+  // AnimatePresence, 
+  motion
+} from "framer-motion";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import { useEffect, useState } from "react";
@@ -28,9 +31,9 @@ export const ItemDetails = ({
     setActive((prev) => (prev - 1 + item.Images.length) % item.Images.length);
   };
 
-  const isActive = (index: number) => {
-    return index === active;
-  };
+  // const isActive = (index: number) => {
+  //   return index === active;
+  // };
 
   useEffect(() => {
     if (autoplay) {
@@ -39,58 +42,14 @@ export const ItemDetails = ({
     }
   }, [autoplay]);
 
-  const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
-  };
+  // const randomRotateY = () => {
+  //   return Math.floor(Math.random() * 21) - 10;
+  // };
   return (
-    <div className="max-w-sm md:max-w-5xl antialiased font-sans px-4 md:px-8 lg:px-12 py-10">
-      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-0">
-        <div>
-          <div className="relative h-80 w-full">
-            <AnimatePresence>
-              {item.Images.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial + index.toString()}
-                  initial={{
-                    opacity: 0,
-                    scale: 0.9,
-                    z: -100,
-                    rotate: randomRotateY(),
-                  }}
-                  animate={{
-                    opacity: isActive(index) ? 1 : 0.7,
-                    scale: isActive(index) ? 1 : 0.95,
-                    z: isActive(index) ? 0 : -100,
-                    rotate: isActive(index) ? 0 : randomRotateY(),
-                    zIndex: isActive(index)
-                      ? 20
-                      : item.Images.length + 2 - index,
-                    y: isActive(index) ? [0, -80, 0] : 0,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    scale: 0.9,
-                    z: 100,
-                    rotate: randomRotateY(),
-                  }}
-                  transition={{
-                    duration: 0.4,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute inset-0 origin-bottom"
-                >
-                  <img
-                    src={testimonial}
-                    alt={item.title}
-                    draggable={false}
-                    className="rounded-3xl object-cover object-center"
-                  />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-        </div>
-        <div className="flex justify-between flex-col py-4">
+    <div className="max-w-lg md:max-w-5xl antialiased font-sans px-4 md:px-8 lg:px-12 py-10">
+      <div className="">
+        <img src={item.Images[0]} className="w-full md:max-w-80 float-left me-5 rounded-2xl mb-3 overflow-hidden " alt="" />
+        <div className="">
           <motion.div
             key={active}
             initial={{
@@ -174,7 +133,7 @@ export const ItemDetails = ({
             </button>
 
           </div>
-            {userData && (userData?.role == 'admin') && <DeleteArtButton FieldData={item} userData={userData} />}
+          {userData && (userData?.role == 'admin') && <DeleteArtButton FieldData={item} userData={userData} />}
         </div>
       </div>
     </div>

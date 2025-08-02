@@ -28,8 +28,8 @@ export default function ArtDetailsPage() {
     if (Art && Art != "error") {
         return (
             <div className="grow flex flex-col">
-                <div className="md:!w-3/4 !w-full mx-auto mt-12">
-                    <div className="bg-gray-100 flex justify-center rounded-lg">
+                <div className="md:!w-3/4 !w-full mx-auto mt-12 flex justify-center">
+                    <div className="bg-gray-100 flex justify-center rounded-lg mb-10">
                         <ItemDetails item={Art} />
                     </div>
                 </div>
