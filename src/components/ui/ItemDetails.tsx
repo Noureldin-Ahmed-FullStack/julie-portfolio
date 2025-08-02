@@ -43,7 +43,7 @@ export const ItemDetails = ({
     return Math.floor(Math.random() * 21) - 10;
   };
   return (
-    <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-10">
+    <div className="max-w-sm md:max-w-5xl antialiased font-sans px-4 md:px-8 lg:px-12 py-10">
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-0">
         <div>
           <div className="relative h-80 w-full">
@@ -82,10 +82,8 @@ export const ItemDetails = ({
                   <img
                     src={testimonial}
                     alt={item.title}
-                    width={500}
-                    height={500}
                     draggable={false}
-                    className="h-full w-full rounded-3xl object-cover object-center"
+                    className="rounded-3xl object-cover object-center"
                   />
                 </motion.div>
               ))}
@@ -121,8 +119,16 @@ export const ItemDetails = ({
             <p className="text-sm text-gray-500 dark:text-neutral-500">
               {item.type}
             </p>
-            <motion.p className="text-lg text-gray-500 mt-4 sm:mt-8 dark:text-neutral-300">
-              {item.note.split(" ").map((word, index) => (
+            <p className="text-lg text-gray-500 mt-2 sm:mt-4 dark:text-neutral-300">
+              Pris: Kr {item.price},-
+            </p>
+
+            <p className="text-lg text-gray-500 mt-2 sm:mt-4 dark:text-neutral-300">
+              Format: {item.format}
+            </p>
+
+            <motion.p className="text-lg text-gray-500 mt-2 sm:mt-4 dark:text-neutral-300">
+              inspiration: {item.note.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
                   initial={{
@@ -147,9 +153,11 @@ export const ItemDetails = ({
               ))}
             </motion.p>
             <p className="mb-2">Tags:</p>
-            {item.tags.map((tag, index) => (
-              <Chip clickable key={index} className="!me-2" color="primary" label={tag} />
-            ))}
+            <div className="mb-2">
+              {item.tags.map((tag, index) => (
+                <Chip clickable key={index} className="!me-2" color="primary" label={tag} />
+              ))}
+            </div>
           </motion.div>
           <div className="flex gap-4 pt-12 md:pt-0">
             <button
@@ -167,7 +175,7 @@ export const ItemDetails = ({
           </div>
         </div>
       </div>
-        {userData && (userData?.role == 'admin') && <DeleteArtButton FieldData={item} userData={userData} />}
+      {userData && (userData?.role == 'admin') && <DeleteArtButton FieldData={item} userData={userData} />}
     </div>
   );
 };

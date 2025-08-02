@@ -29,7 +29,7 @@ export default function ArtDetailsPage() {
         return (
             <div className="grow flex flex-col">
                 <div className="md:!w-3/4 !w-full mx-auto mt-12">
-                    <div className="bg-gray-100 rounded-lg">
+                    <div className="bg-gray-100 flex justify-center rounded-lg">
                         <ItemDetails item={Art} />
                     </div>
                 </div>

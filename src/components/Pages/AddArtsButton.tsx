@@ -27,10 +27,11 @@ export default function AddArtsButton() {
     };
 
     const placeholders = [
-        "5v5",
-        "club",
-        "matches",
+        "Big canvas",
+        "special event",
+        "colorful",
         "popular",
+        "abstract",
     ];
     const handleChange = (_e: React.ChangeEvent<HTMLInputElement>) => {
         // console.log(e.target.value);
@@ -62,7 +63,7 @@ export default function AddArtsButton() {
             });
             const formJson = Object.fromEntries((formData as any).entries());
             console.log(formJson);
-            const strings = [formJson.title, formJson.ownedBy, formJson.location, formJson.price, formJson.address, formJson.hourCount]
+            const strings = [formJson.title, formJson.type, formJson.format, formJson.price, formJson.note]
             const emptyIndices = findEmptyStringIndices(strings);
             setEmptyIndicesState(findEmptyStringIndices(strings))
             let errorsArray = []
@@ -73,19 +74,16 @@ export default function AddArtsButton() {
                         errorsArray.push("Title is required")
                         break;
                     case 1:
-                        errorsArray.push("Owner is required")
+                        errorsArray.push("Category is required")
                         break;
                     case 2:
-                        errorsArray.push("Location is required")
+                        errorsArray.push("Format is required")
                         break;
                     case 3:
                         errorsArray.push("price is required")
                         break;
                     case 4:
-                        errorsArray.push("address is required")
-                        break;
-                    case 5:
-                        errorsArray.push("working hours is required")
+                        errorsArray.push("Insperation is required")
                         break;
                     default:
                         break;
@@ -97,8 +95,8 @@ export default function AddArtsButton() {
             if (emptyIndices.length != 0) {
                 return
             }
-            if (formJson.hourCount < 0 || formJson.price < 0) {
-                toast.error("working hours or price cannot be below zero!", {
+            if (Images.length == 0) {
+                toast.error("add Images!", {
                     position: "top-center",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -209,6 +207,7 @@ export default function AddArtsButton() {
                                 value={artType}
                                 label="type"
                                 onChange={handleArtTypeChange}
+                                error={emptyIndicesState.includes(1)}
                             >
                                 <MenuItem value={'select_art_type'}>select Category (required*)</MenuItem>
                                 <MenuItem value={'general'}>General Art</MenuItem>
@@ -218,12 +217,15 @@ export default function AddArtsButton() {
                                 <MenuItem value={'historical_icons'}>Historical icons</MenuItem>
                             </Select>
                         </Grid>
+                        <Grid size={6}><TextField error={emptyIndicesState.includes(0)} required fullWidth id="format" name='format' label="format" variant="outlined" /></Grid>
+                        <Grid size={6}><TextField error={emptyIndicesState.includes(0)} required type='number' fullWidth id="price" name='price' label="price" variant="outlined" /></Grid>
+
 
                         <Grid size={12}>
                             <TextField
                                 id="note"
                                 name="note"
-                                label="notes"
+                                label="Insperation"
                                 placeholder={`example: Oil on Canvas \u000A32 x 32 in \u000AThis elegant oil painting captures the beauty of massive pastel flowers.`}
                                 rows={4}
                                 className="w-full whitespace-pre custom-textfield"
@@ -263,7 +265,7 @@ export default function AddArtsButton() {
             </CustomDialog>
             {userData?.role == "admin" && <Tooltip title="Add Artwork" followCursor>
                 <IconButton onClick={handleOpenDialog} aria-label="add artwork">
-                    <AddPhotoAlternateIcon className='text-neutral-100' fontSize="large"/>
+                    <AddPhotoAlternateIcon className='text-neutral-100' fontSize="large" />
                 </IconButton>
             </Tooltip>}
 

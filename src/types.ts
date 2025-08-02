@@ -52,6 +52,7 @@ export interface ArtPieceType {
     coverImage: string
     note: string
     status: string
+    format: string
     price: number
     type: 'general' | 'cartoon_characters' | 'animals' | 'realism' | 'historical_icons'
     title: string
