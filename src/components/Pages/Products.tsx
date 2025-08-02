@@ -93,7 +93,7 @@ export default function Products() {
             <DarkDiv className="mt-5 container">
                 <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
                     {data.map((item: ArtPieceType) => (
-                        <ArtItemMUI key={item._id} _id={item._id} type={item.type} className="my-2" Name={item.title} Icon={item.coverImage} note={item.note} price={1000} status={item.status} />
+                        <ArtItemMUI key={item._id} _id={item._id} type={item.type} price={item.price} className="my-2" Name={item.title} Icon={item.coverImage} note={item.note} status={item.status} />
                     ))}
                 </div>
                 {/* <MasonryGallery /> */}

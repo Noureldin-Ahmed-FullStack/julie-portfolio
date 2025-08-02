@@ -25,7 +25,7 @@ interface props {
     className?: string
 }
 export default function ArtItemMUI(props: props) {
-    const { Icon, Name, note, _id, type ,status} = props
+    const { Icon, Name, note, _id, type, status, price } = props
     const { userData } = useUserContext();
     const { favsList } = useUserFavsContext();
     const queryClient = useQueryClient();
@@ -81,7 +81,7 @@ export default function ArtItemMUI(props: props) {
                     src={Icon}
                     alt="Painting"
                     loading='lazy'
-                    className="w-full object-contain"
+                    className="w-full object-cover min-h-64"
                 />
 
                 <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:pb-8 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-between p-4">
@@ -93,10 +93,11 @@ export default function ArtItemMUI(props: props) {
                             <IconButton className="!text-white" onClick={() => addFav(userData?._id, _id)} sx={{ marginRight: "-10px" }} aria-label="add to Favourites"><FavoriteBorderIcon className="cursor-pointer" /></IconButton></Tooltip>}
                     </div>
                     <div>
-                        <h2 className="text-white text-2xl font-semibold">{Name}</h2>
+                        <h2 className="text-white text-md sm:text-2xl font-semibold">{Name}</h2>
                         <p className="text-gray-300 text-sm line-clamp-2">{type}</p>
+                        <p className="text-gray-300 text-sm line-clamp-2">Pris: Kr {price}-</p>
                         <p className="text-gray-300 text-sm line-clamp-2">{note}</p>
-                        <Link to={"/artpiece/" + _id} className="!w-full block rounded-md mt-5 hover:text-black bg-white py-2 px-4  text-center text-sm text-slate-800 transition-all shadow-md hover:shadow-lg focus:bg-zinc-200 focus:shadow-none active:bg-zinc-200 hover:bg-zinc-200 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
+                        <Link to={"/artpiece/" + _id} className="!w-full block rounded-md mt-5 hover:text-black bg-white py-2 px-4 text-center text-sm text-slate-800 transition-all shadow-md hover:shadow-lg focus:bg-zinc-200 focus:shadow-none active:bg-zinc-200 hover:bg-zinc-200 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
                             Explore
                         </Link>
                     </div>
