@@ -26,12 +26,12 @@ export default function Favouritespage({ className }: FavouritesPageProps) {
         <div className="flex flex-col justify-center items-center playwrite grow">
             <div className="flex items-center mt-12 bg-blue-800">
             </div>
-            <Grid container className="items-center w-3/5">
+            <Grid container className="items-center w-[90%] md:w-3/5">
                 <Grid size="grow" className="justify-center">
                     <a className="flex justify-center" href="https://www.flaticon.com/free-icons/flower" title="flower icons"><img className='!w-9 !h-9' src="https://res.cloudinary.com/dqijwldax/image/upload/v1742256773/Julie/succulent_jegahu.png" alt="www.flaticon.com" /></a>
                 </Grid>
                 <Grid size={6}>
-                    <h1 className="text-center mx-5">Your Favourited Artworks</h1>
+                    <h1 className="text-center text-[25px] md:text-2xl lg:text-4xl mx-5">Your Favourited Artworks</h1>
                 </Grid>
                 <Grid size="grow" className="justify-center">
                     <a className="flex justify-center" href="https://www.flaticon.com/free-icons/flower" title="flower icons"><img className='w-9 h-9 flip-x' src="https://res.cloudinary.com/dqijwldax/image/upload/v1742256773/Julie/succulent_jegahu.png" alt="www.flaticon.com" /></a>
@@ -47,7 +47,7 @@ export default function Favouritespage({ className }: FavouritesPageProps) {
                         </div>
                     ) : (
                         <CenteredPage className="">
-                            <h4 className="text-6xl mb-5 text-center text-blue-700 dark:text-zinc-200 font-medium agu-display">Favourites are empty</h4>
+                            <h4 className="text-[25px] md:text-4xl lg:text-6xl mb-5 text-center text-blue-700 dark:text-zinc-200 font-medium agu-display">Favourites are empty</h4>
                             <Link to="/"><p className="underline underline-offset-4 text-3xl mb-5 text-center text-blue-600 text-opacity-70 font-medium">go back home<KeyboardTabIcon /></p></Link>
                         </CenteredPage>
                     )}
