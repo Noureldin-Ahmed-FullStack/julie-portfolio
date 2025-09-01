@@ -1,7 +1,8 @@
 {
-  "rewrites": [
-    { "source": "/robots.txt", "destination": "/robots.txt" },
-    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
-    { "source": "/(.*)", "destination": "/index.html" }
+  "redirects": [
+    { "source": "/lol", "destination": "https://vercel.com/docs", "permanent": true },
+    { "source": "/robots.txt", "destination": "/robots.txt", "permanent": true },
+    { "source": "/sitemap.xml", "destination": "/sitemap.xml", "permanent": true },
+    { "source": "/:path*", "destination": "/index.html" }
   ]
 }
