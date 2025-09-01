@@ -13,10 +13,6 @@
     {
       "src": "/sitemap.xml",
       "dest": "/sitemap.xml"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
     }
   ]
 }
