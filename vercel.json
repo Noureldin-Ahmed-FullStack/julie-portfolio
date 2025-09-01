@@ -1,22 +1,7 @@
 {
-  "cleanUrls": true,
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "artbyjulieulfeng.vercel.app"
-        }
-      ],
-      "destination": "/index.html"
-    }
-  ],
-  "ignoreFiles": [],
-  "routes": [
-    {
-      "src": "/(robots.txt|sitemap.xml)",
-      "dest": "/$1"
-    }
+    { "source": "/robots.txt", "destination": "/robots.txt" },
+    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
