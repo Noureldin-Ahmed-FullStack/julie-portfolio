@@ -10,23 +10,22 @@ export default function AboutSegment2() {
                     <div className=' flex-col flex justify-center'>
                         <div className='w-fit'>
                             <a href="https://www.flaticon.com/free-icons/flower" title="flower icons"><img className='w-9 h-9' src="https://res.cloudinary.com/dqijwldax/image/upload/v1742242524/Julie/flower2_oz48wq.png" alt="www.flaticon.com" /></a>
-                            <h1 className='crimson-pro text-slate-800'>Production Process</h1>
+                            <h1 className='crimson-pro text-slate-800'>Tegneprosess</h1>
                             <div className='bg-slate-500 h-px w-4/5 my-5'></div>
                         </div>
 
                         <p className="text-justify">
-                            Every artwork is unique, but if a piece you love has already been sold, I can recreate it just for you.
+                            Hvert kunstverk er unikt, men dersom et bilde du liker allerede er solgt, kan jeg lage en ny versjon spesielt for deg.
                             <br />
-                            To begin, reach out to me via Instagram, TikTok direct messages, or email. Once we establish contact, we will discuss the details and set a timeline for production.
+                           For å komme i gang kan du kontakte meg via Instagram, TikTok-direktemelding eller e-post. Når vi har fått kontakt, avtaler vi detaljer og setter opp en tidsplan for arbeidet.
                             <br />
-                            For the best results, please provide a detailed description of your vision—the more details, the better! High-quality reference images will also help ensure the best possible outcome.
+                            For best mulig resultat er det fint om du gir en grundig beskrivelse av din idé – jo mer detaljert, desto bedre! Referansebilder i god kvalitet hjelper meg også med å skape et verk som svarer til dine ønsker.
                             <br />
-                            Before I start working, a 50% deposit of the total price is required. If needed, I will create a rough sketch to outline my ideas, and I can share progress updates upon request.
+                           Før jeg starter, kreves et forskudd på 50 % av totalprisen. Ved behov kan jeg lage en grovskisse for å vise mine tanker, og jeg kan sende oppdateringer underveis om ønskelig.
                             <br />
-                            Once the artwork is complete, you can pick it up from my home address or have it shipped directly to you.
-                            Personalized Artwork
+                            Når kunstverket er ferdig, kan du hente det hos meg eller få det sendt direkte hjem til deg.
                             <br />
-                            Do you have a beloved pet, favorite idol, cherished family member, or comfort character you’d love captured in art? Click below to learn more!
+                            Har du et kjæledyr, et favorittidol, et familiemedlem eller en karakter som du gjerne vil forevige i kunst? Da kan jeg skape et personlig verk bare for deg. Klikk nedenfor for mer informasjon
                         </p>
                     </div>
                 </Reveal>

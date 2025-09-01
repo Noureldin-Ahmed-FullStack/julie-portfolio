@@ -12,10 +12,10 @@ export default function CusomJobs() {
                     <Reveal className="flex items-center" width='full' direction='left'>
                         <div className="flex-col h-full flex justify-center">
                             <div className="w-5/6 lg:w-4/5">
-                                <h1 className="crimson-pro text-gray-300">Custom art inspired by your favourite <div className="relative overflow-hidden"><FlipWords words={['Character', 'Pet']} />.</div></h1>
-                                <h2 className="crimson-pro text-gray-300 font-bold my-3">Commision work</h2>
-                                <p className='karla text-gray-300/80 text-justify'>Do you have a favorite animal or character you'd love to see brought to life on canvas? Maybe a pet that holds a special place in your heart? Or you fell in love with an art piece in our shop, but it's already sold? You can now order your very own custom artwork, tailored to your vision!</p>
-                                <Link to="/about#custom"><button className="w-60 mt-10 bg-zinc-300 hover:bg-zinc-900 hover:text-zinc-100 text-zinc-900 hover:border-zinc-900 transition-all duration-300 font-bold rounded-sm hover:scale-110">Tell me more</button></Link>
+                                <h1 className="crimson-pro text-gray-300">Bestillingskunst inspirert av din favoritt <div className="inline relative overflow-hidden"><FlipWords words={['karakter', 'Kjæledyr']} />.</div></h1>
+                                <h2 className="crimson-pro text-gray-300 font-bold my-3">Bestillingsverk</h2>
+                                <p className='karla text-gray-300/80 text-justify'>Har du en favorittkarakter eller et dyr du gjerne skulle sett vekket til liv på lerret? Kanskje et kjæledyr som betyr ekstra mye for deg – eller et kunstverk du falt for i nettbutikken, men som allerede er solgt? Nå kan du bestille et personlig kunstverk, skapt spesielt for deg og din visjon!</p>
+                                <Link to="/about#custom"><button className="w-60 mt-10 bg-zinc-300 hover:bg-zinc-900 hover:text-zinc-100 text-zinc-900 hover:border-zinc-900 transition-all duration-300 font-bold rounded-sm hover:scale-110">Fortell mer</button></Link>
                             </div>
                         </div>
                     </Reveal>
@@ -28,10 +28,10 @@ export default function CusomJobs() {
                     <Reveal className="flex items-center" width='full' direction='top'>
                     <div className="flex-col h-full flex justify-end items-center">
                         <div className="w-5/6 mt-96">
-                            <h1 className="crimson-pro text-gray-300">Custom art inspired by your favourite Character or Pet.</h1>
-                            <h2 className="crimson-pro text-gray-300 font-bold my-3">Commision work</h2>
-                            <p className='karla text-gray-300/80 text-justify'>Do you have a favorite animal or character you'd love to see brought to life on canvas? Maybe a pet that holds a special place in your heart? Or you fell in love with an art piece in our shop, but it's already sold? You can now order your very own custom artwork, tailored to your vision!</p>
-                            <Link to="/about#custom"><button className="w-60 mt-10 bg-zinc-300 hover:bg-zinc-900 hover:text-zinc-100 text-zinc-900 hover:border-zinc-900 transition-all duration-300 font-bold rounded-sm hover:scale-110">Tell me more</button></Link>
+                            <h1 className="crimson-pro text-gray-300">Bestillingskunst inspirert av din favoritt karakter eller Kjæledyr</h1>
+                            <h2 className="crimson-pro text-gray-300 font-bold my-3">Bestillingsverk</h2>
+                            <p className='karla text-gray-300/80 text-justify'>Har du en favorittkarakter eller et dyr du gjerne skulle sett vekket til liv på lerret? Kanskje et kjæledyr som betyr ekstra mye for deg – eller et kunstverk du falt for i nettbutikken, men som allerede er solgt? Nå kan du bestille et personlig kunstverk, skapt spesielt for deg og din visjon!</p>
+                            <Link to="/about#custom"><button className="w-60 mt-10 bg-zinc-300 hover:bg-zinc-900 hover:text-zinc-100 text-zinc-900 hover:border-zinc-900 transition-all duration-300 font-bold rounded-sm hover:scale-110">Fortell mer</button></Link>
 
                         </div>
                     </div>
