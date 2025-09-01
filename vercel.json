@@ -1,16 +1,11 @@
 {
-  "rewrites": [
-    {
-      "source": "/robots.txt",
-      "destination": "/robots.txt"
-    },
-    {
-      "source": "/sitemap.xml",
-      "destination": "/sitemap.xml"
-    },
+  "redirects": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/index.html",
+      "has": [
+        { "type": "host", "value": "^(?!.*\\.(txt|xml|ico|png|jpg|jpeg|gif|svg|css|js)$).*" }
+      ]
     }
   ]
 }
