@@ -1,15 +1,9 @@
 {
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": "text/html"
-        }
-      ]
-    }
+  "static": {
+    "robots.txt": "public/robots.txt",
+    "sitemap.xml": "public/sitemap.xml"
+  },
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
