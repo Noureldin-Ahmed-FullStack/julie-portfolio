@@ -1,16 +1,15 @@
 {
-  "routes": [
+  "rewrites": [
     {
-      "src": "/robots.txt",
-      "dest": "/robots.txt"
-    },
-    {
-      "src": "/sitemap.xml",
-      "dest": "/sitemap.xml"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "text/html"
+        }
+      ]
     }
   ]
 }
