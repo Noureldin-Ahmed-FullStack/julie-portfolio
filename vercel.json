@@ -1,6 +1,4 @@
 {
-  
-  "cleanUrls": true,
   "rewrites": [
     {
       "source": "/(.*)",
@@ -15,6 +13,11 @@
     {
       "src": "/sitemap.xml",
       "dest": "/sitemap.xml"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
-  ]
+  ],
+  "cleanUrls": true
 }
