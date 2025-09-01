@@ -1,10 +1,4 @@
 {
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
   "routes": [
     {
       "src": "/robots.txt",
@@ -13,11 +7,13 @@
     {
       "src": "/sitemap.xml",
       "dest": "/sitemap.xml"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
     }
   ],
-  "cleanUrls": true
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+  
 }
