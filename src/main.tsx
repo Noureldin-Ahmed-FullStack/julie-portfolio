@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       { path: "/about", element: <AboutPage /> },
       { path: "/sign-in", element: <CenteredPage className="my-10"><SignIn routing='hash' forceRedirectUrl={'/Julie'} /></CenteredPage> },
       { path: "/sign-up", element: <CenteredPage className="my-10"><SignUp routing='hash' forceRedirectUrl={'/Julie'} /></CenteredPage> },
-      { path: "*", element: <CenteredPage><NotFoundPage /></CenteredPage> },
+      // { path: "*", element: <CenteredPage><NotFoundPage /></CenteredPage> },
     ]
   }
 ])
