@@ -13,7 +13,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './components/HomePage.tsx'
 import { ClerkProvider, SignIn, SignUp } from '@clerk/clerk-react'
 import CenteredPage from './components/CenteredPage.tsx'
-// import NotFoundPage from './components/NotFoundPage.tsx'
+import NotFoundPage from './components/NotFoundPage.tsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import 'react-toastify/dist/ReactToastify.css';
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       { path: "/about", element: <AboutPage /> },
       { path: "/sign-in", element: <CenteredPage className="my-10"><SignIn routing='hash' forceRedirectUrl={'/Julie'} /></CenteredPage> },
       { path: "/sign-up", element: <CenteredPage className="my-10"><SignUp routing='hash' forceRedirectUrl={'/Julie'} /></CenteredPage> },
-      // { path: "*", element: <CenteredPage><NotFoundPage /></CenteredPage> },
+      { path: "*", element: <CenteredPage><NotFoundPage /></CenteredPage> },
     ]
   }
 ])
