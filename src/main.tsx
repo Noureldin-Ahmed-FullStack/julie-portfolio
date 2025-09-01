@@ -13,7 +13,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './components/HomePage.tsx'
 import { ClerkProvider, SignIn, SignUp } from '@clerk/clerk-react'
 import CenteredPage from './components/CenteredPage.tsx'
-import NotFoundPage from './components/NotFoundPage.tsx'
+// import NotFoundPage from './components/NotFoundPage.tsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import 'react-toastify/dist/ReactToastify.css';
