@@ -1,11 +1,12 @@
 {
-  "redirects": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html",
-      "has": [
-        { "type": "host", "value": "^(?!.*\\.(txt|xml|ico|png|jpg|jpeg|gif|svg|css|js)$).*" }
-      ]
+      "src": "/(robots.txt|sitemap.xml)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/.*",
+      "dest": "/index.html"
     }
   ]
 }
