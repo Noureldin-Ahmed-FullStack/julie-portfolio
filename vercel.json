@@ -1,9 +1,8 @@
 {
-  "static": {
-    "robots.txt": "public/robots.txt",
-    "sitemap.xml": "public/sitemap.xml"
-  },
-  "routes": [
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    {
+      "source": "/((?!robots\\.txt|sitemap\\.xml).*)",
+      "destination": "/index.html"
+    }
   ]
 }
