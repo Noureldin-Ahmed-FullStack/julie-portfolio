@@ -9,7 +9,7 @@ import './styles/navbar.css'
 import './styles/socials.css'
 import { ToastContainer } from 'react-toastify';
 import "yet-another-react-lightbox/styles.css";
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createHashRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './components/HomePage.tsx'
 import { ClerkProvider, SignIn, SignUp } from '@clerk/clerk-react'
 import CenteredPage from './components/CenteredPage.tsx'
@@ -29,7 +29,7 @@ if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key")
 }
 const queryClient = new QueryClient()
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     element: <App />,
     children: [
