@@ -22,7 +22,7 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
         // 👇 Do NOT serve index.html for these URLs
         navigateFallbackDenylist: [
-          /sitemap_new\.xml$/,
+          /sitemapmain\.xml$/,
           /robots\.txt$/
         ],
       },
