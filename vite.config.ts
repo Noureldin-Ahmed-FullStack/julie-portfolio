@@ -13,49 +13,68 @@ export default defineConfig({
         "/blog",
         "/browse",
         "/home",
-        "/favourites",
+        "/favourites"
       ],
+      changefreq: {
+        "/": "weekly",
+        "/about": "yearly",
+        "/blog": "daily",
+        "/browse": "weekly",
+        "/home": "weekly",
+        "/favourites": "monthly",
+        "*": "monthly"  // default for any route not covered
+      },
+      priority: {
+        "/": 1.0,
+        "/about": 0.3,
+        "/blog": 0.8,
+        "/browse": 0.7,
+        "/home": 0.6,
+        "/favourites": 0.4,
+        "*": 0.5  // default
+      },
+      lastmod: new Date(),  // or a route map similar to above if you want different dates
     }),
-    VitePWA({
-      registerType: 'autoUpdate',
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
-        // 👇 Do NOT serve index.html for these URLs
-        navigateFallbackDenylist: [
-          /sitemap\.xml$/,
-          /robots\.txt$/
-        ],
+VitePWA({
+  registerType: 'autoUpdate',
+  workbox: {
+    globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+    // 👇 Do NOT serve index.html for these URLs
+    navigateFallbackDenylist: [
+      /sitemap\.xml$/,
+      /robots\.txt$/
+    ],
+  },
+  includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+  manifest: {
+    name: "Julie's Art Gallery",
+    short_name: "Julie's Art Gallery",
+    theme_color: '#ffffff',
+    icons: [
+      {
+        src: 'pwa-64x64.png',
+        sizes: '64x64',
+        type: 'image/png'
       },
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
-      manifest: {
-        name: "Julie's Art Gallery",
-        short_name: "Julie's Art Gallery",
-        theme_color: '#ffffff',
-        icons: [
-          {
-            src: 'pwa-64x64.png',
-            sizes: '64x64',
-            type: 'image/png'
-          },
-          {
-            src: 'pwa-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: 'pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any'
-          },
-          {
-            src: 'maskable-icon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'maskable'
-          }
-        ],
+      {
+        src: 'pwa-192x192.png',
+        sizes: '192x192',
+        type: 'image/png'
       },
-    })
+      {
+        src: 'pwa-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'any'
+      },
+      {
+        src: 'maskable-icon-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'maskable'
+      }
+    ],
+  },
+})
   ],
 })
