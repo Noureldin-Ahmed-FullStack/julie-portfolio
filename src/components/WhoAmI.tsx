@@ -15,7 +15,7 @@ export default function WhoAmI() {
                 <div className=' flex-col flex justify-center'>
                     <div className='w-fit'>
                         <a href="https://www.flaticon.com/free-icons/flower" title="flower icons"><img className='w-9 h-9' src="https://res.cloudinary.com/dqijwldax/image/upload/v1742226577/Julie/flower_mu3ne0.png" alt="www.flaticon.com" /></a>
-                        <h1 className='crimson-pro text-slate-800'>Julie-Fredrike</h1>
+                        <h2 className='crimson-pro text-slate-800 text-[40px]'>Julie-Fredrike</h2>
                         <div className='bg-slate-500 h-px w-4/5 my-5'></div>
                     </div>
                     <p className='karla text-slate-800/80 text-justify'>Hei, jeg er Julie – en 23 år gammel norsk kunstner med en livslang lidenskap for tegning. Jeg elsker å utforske nye uttrykksformer, og jobber for tiden hovedsakelig med pastell. Kunsten min er nært knyttet til min interesse for både kunst og psykologi, og jeg lar meg inspirere av sjeler, personligheter og indre verdener. Arbeidsprosessen min er intuitiv og personlig – en tolkning av motivet som kombinerer det observerbare med egne innsikter. Jeg tilfører ofte detaljer som jeg føler hører hjemme i bildet, enten det er objekter fra personens tidsepoke eller visuelle elementer som gjenspeiler blikket deres. Likevel er fokuset alltid på mennesket jeg portretterer. Jeg ønsker å formidle sterke, visuelle fortellinger gjennom kunsten min.</p>

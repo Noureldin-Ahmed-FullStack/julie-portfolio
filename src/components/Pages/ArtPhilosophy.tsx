@@ -10,7 +10,7 @@ export default function ArtPhilosophy() {
                     <div className=' flex-col flex justify-center'>
                         <div className='w-fit'>
                             <a href="https://www.flaticon.com/free-icons/flower" title="flower icons"><img className='w-9 h-9' src="https://res.cloudinary.com/dqijwldax/image/upload/v1742242524/Julie/flower2_oz48wq.png" alt="www.flaticon.com" /></a>
-                            <h1 className='crimson-pro text-slate-800'>Min filosofi</h1>
+                            <h2 className='crimson-pro text-slate-800 text-[40px]'>Min filosofi</h2>
                             <div className='bg-slate-500 h-px w-4/5 my-5'></div>
                         </div>
                         <p className='karla text-justify text-slate-800/80'>Tegningene mine søker å fortelle to sammenvevde historier: min tolkning av motivets personlighet og bakgrunn, og sporene som tiden har satt i deres ytre. Jeg kan ikke avsløre sjelen deres – men jeg kan formidle hvem jeg opplever at de er. Enten det er et menneske, et dyr eller en fiktiv karakter, bærer hvert motiv på en fortelling. Jeg forsøker å gi liv til både fortiden og essensen deres, styrt av intuisjon og bevisste kunstneriske valg.
