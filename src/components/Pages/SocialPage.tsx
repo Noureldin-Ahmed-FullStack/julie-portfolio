@@ -5,6 +5,7 @@ import AddPost from "../addPost";
 import { SinglePost } from "../ui/SinglePost";
 import { ScaleLoader } from 'react-spinners'
 import { Button } from "@mui/material";
+import { Helmet } from "react-helmet-async";
 // import CenteredPage from "../CenteredPage";
 // const postsArray: SocialPost[] = [{
 //   content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
@@ -36,6 +37,23 @@ export default function SocialPage() {
 
   return (
     <div className="grow">
+      <Helmet>
+        <title>Sosialt | Julie Ulfeng – Nyheter & Oppdateringer</title>
+        <meta
+          name="description"
+          content="Følg Julie Ulfengs siste nyheter, innlegg og oppdateringer. Utforsk nye prosjekter, kunstverk og innsikt fra en norsk pastellkunstner."
+        />
+        <meta
+          property="og:title"
+          content="Sosialt | Julie Ulfeng – Nyheter & Oppdateringer"
+        />
+        <meta
+          property="og:description"
+          content="Hold deg oppdatert med Julie Ulfengs sosiale side. Les innlegg, nyheter og følg hennes kunstneriske reise som pastellkunstner."
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       <div className="mt-7 flex justify-center ">
         <div className="flex flex-col maxWidth50vw ">
           {userData?._id && userData?.role == "admin" ? <AddPost /> : <></>}

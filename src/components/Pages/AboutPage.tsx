@@ -4,7 +4,7 @@ import { FlipWords } from "../ui/flip-words";
 import AboutSegment2 from "./AboutSegment2";
 import DescribeYourOrder from "./DescribeYourOrder";
 import OrderSteps from "./OrderSteps";
-
+import { Helmet } from "react-helmet-async";
 export default function AboutPage() {
     useEffect(() => {
         const hash = window.location.hash;
@@ -17,6 +17,17 @@ export default function AboutPage() {
     }, []);
     return (
         <div>
+            <Helmet>
+                <title>Om | Julie Ulfeng – Pastellkunstner</title>
+                <meta
+                    name="description"
+                    content="Julie Ulfeng er en pastellkunstner som spesialiserer seg på portretter og tegninger med myke pasteller. Lær mer om kunstnerens reise, teknikker og inspirasjon." />
+                <meta property="og:title" content="Om | Julie Ulfeng – Pastellkunstner" />
+                <meta
+                    property="og:description"
+                    content="Julie Ulfeng er en pastellkunstner som spesialiserer seg på portretter og tegninger med myke pasteller. Lær mer om kunstnerens reise, teknikker og inspirasjon." />
+                <meta property="og:type" content="website" />
+            </Helmet>
             <div className="relative bg-[url('https://res.cloudinary.com/dqijwldax/image/upload/v1743399207/Julie/julie_gbnctu.avif')] text-white text-center py-32">
                 <div className="absolute inset-0 bg-slate-900 bg-opacity-80"></div>
                 {/* Background and Text */}

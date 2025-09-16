@@ -9,6 +9,7 @@ import './styles/navbar.css'
 import './styles/socials.css'
 import { ToastContainer } from 'react-toastify';
 import "yet-another-react-lightbox/styles.css";
+import { HelmetProvider } from "react-helmet-async";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './components/HomePage.tsx'
 import { ClerkProvider, SignIn, SignUp } from '@clerk/clerk-react'
@@ -51,11 +52,13 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   // <StrictMode>
   <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-      <ToastContainer />
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+        <ToastContainer />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </HelmetProvider>
   </ClerkProvider>
   // </StrictMode>
 )

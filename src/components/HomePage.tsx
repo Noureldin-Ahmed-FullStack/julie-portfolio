@@ -1,4 +1,5 @@
 
+import { Helmet } from "react-helmet-async";
 import HeroSegment from "./HeroSegment";
 import ArtPhilosophy from "./Pages/ArtPhilosophy";
 import CusomJobs from "./Pages/CusomJobs";
@@ -10,6 +11,31 @@ export default function HomePage() {
 
     return (
         <div className="flex flex-col grow items-center">
+            <Helmet>
+                <title>Hjem | Julie Ulfeng – Norsk Pastellkunstner</title>
+                {/* Home | Julie Ulfeng – Norwegian Pastel Artist */}
+
+                <meta
+                    name="description"
+                    content="Velkommen til den offisielle nettsiden til Julie Ulfeng. Utforsk unike pastellkunstverk, lær mer om kunstneren og oppdag inspirasjon fra norsk kunst."
+                />
+                {/* Welcome to the official website of Julie Ulfeng. Explore unique pastel artworks, learn more about the artist, and discover inspiration from Norwegian art. */}
+
+                <meta
+                    property="og:title"
+                    content="Hjem | Julie Ulfeng – Norsk Pastellkunstner"
+                />
+                {/* Home | Julie Ulfeng – Norwegian Pastel Artist */}
+
+                <meta
+                    property="og:description"
+                    content="Besøk Julie Ulfengs hjemmeside og opplev hennes kunstneriske univers. Se vakre pastellmalerier og følg reisen hennes som kunstner."
+                />
+                {/* Visit Julie Ulfeng’s homepage and experience her artistic universe. See beautiful pastel paintings and follow her journey as an artist. */}
+
+                <meta property="og:type" content="website" />
+            </Helmet>
+
             <div className="flex flex-col w-full grow items-center ">
                 {/* <img src="https://ssniper.sirv.com/Julie-Portfolio/julie.jpg" className="w-full min-h-60 object-cover" alt="header" /> */}
                 <div className="w-full bg-blue-900 flex justify-center">

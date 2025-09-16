@@ -7,6 +7,7 @@ import LoadingPage from "./LoadingPage";
 import { useArt } from "../../hooks/FetchArt";
 import ArtItemMUI from "../ui/ArtItemMUI";
 import ErrorPage from "./ErrorPage";
+import { Helmet } from "react-helmet-async";
 // import MasonryGallery from "./MasionaryComponent";
 
 export default function Products() {
@@ -55,6 +56,31 @@ export default function Products() {
     }
     return (
         <>
+            <Helmet>
+                <title>Bla gjennom | Julie Ulfeng – Pastellkunst til salgs</title>
+                {/* Browse | Julie Ulfeng – Pastel art for sale */}
+
+                <meta
+                    name="description"
+                    content="Oppdag og bla gjennom Julie Ulfengs originale pastellkunstverk. Finn unike tegninger og malerier tilgjengelig for kjøp."
+                />
+                {/* Discover and browse Julie Ulfeng’s original pastel artworks. Find unique drawings and paintings available for purchase. */}
+
+                <meta
+                    property="og:title"
+                    content="Bla gjennom | Julie Ulfeng – Pastellkunst til salgs"
+                />
+                {/* Browse | Julie Ulfeng – Pastel art for sale */}
+
+                <meta
+                    property="og:description"
+                    content="Utforsk Julie Ulfengs galleri med pastellkunst. Se kunstverkene som er tilgjengelige for salg og finn ditt neste favorittbilde."
+                />
+                {/* Explore Julie Ulfeng’s pastel art gallery. View artworks available for sale and find your next favorite piece. */}
+
+                <meta property="og:type" content="website" />
+                {/* Defines this as a standard website for social previews */}
+            </Helmet>
 
             <div className="flex flex-col justify-center items-center playwrite w-full">
                 <div className="grid grid-cols-10 gap-4 px-8 mb-8">
