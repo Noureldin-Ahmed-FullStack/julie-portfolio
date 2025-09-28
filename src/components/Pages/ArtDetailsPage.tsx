@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 // import { motion } from "framer-motion";
 import { ItemDetails } from "../ui/ItemDetails";
 import { ArtPieceType } from "../../types";
+import { Helmet } from "react-helmet-async";
 // import "slick-carousel/slick/slick-theme.css";
 // import Grid from '@mui/material/Grid2';
 // import StarRateIcon from '@mui/icons-material/StarRate';
@@ -26,8 +27,52 @@ export default function ArtDetailsPage() {
         setArt(data)
     }, [data])
     if (Art && Art != "error") {
+        const keywords = [
+            Art.title,
+            "Julie Ulfeng",
+            "Pastellkunst",
+            "Norsk Kunst",
+            "Art",
+            "Artwork",
+            "Pastel",
+            "Painting",
+            Art.type, // add tags/keywords from backend
+        ]
         return (
             <div className="grow flex flex-col">
+                <Helmet>
+                    <title>{Art.title} | Julie Ulfeng – Pastellkunst</title>
+                    {/* Example: "Portrait of Anna | Julie Ulfeng – Pastel Art" */}
+
+                    <meta name="description" content={Art.note} />
+                    {/* Short description of the artwork */}
+
+                    <meta name="keywords" content={keywords.join(", ")} />
+                    {/* Dynamic keywords: title, tags, artist, art type */}
+
+                    {/* Open Graph (for Facebook, WhatsApp, LinkedIn) */}
+                    <meta property="og:type" content="article" />
+                    <meta
+                        property="og:title"
+                        content={`${Art.title} | Julie Ulfeng – Pastellkunst`}
+                    />
+                    <meta property="og:description" content={Art.note} />
+                    <meta property="og:image" content={Art.coverImage || Art.Images[0]} />
+                    <meta
+                        property="og:url"
+                        content={`https://artbyjulieulfeng.vercel.app/art/${encodeURIComponent(
+                            Art.title
+                        )}`}
+                    />
+                    {/* Twitter Cards */}
+                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta
+                        name="twitter:title"
+                        content={`${Art.title} | Julie Ulfeng – Pastellkunst`}
+                    />
+                    <meta name="twitter:description" content={Art.note} />
+                    <meta name="twitter:image" content={Art.coverImage || Art.Images[0]} />
+                </Helmet>
                 <div className="md:!w-3/4 !w-full mx-auto mt-12 flex justify-center">
                     <div className="bg-gray-100 flex justify-center rounded-lg mb-10">
                         <ItemDetails item={Art} />

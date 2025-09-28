@@ -23,6 +23,8 @@ export default function AboutPage() {
                     name="description"
                     content="Julie Ulfeng er en pastellkunstner som spesialiserer seg på portretter og tegninger med myke pasteller. Lær mer om kunstnerens reise, teknikker og inspirasjon." />
                 <meta property="og:title" content="Om | Julie Ulfeng – Pastellkunstner" />
+
+                <meta property="og:image" content="https://res.cloudinary.com/dqijwldax/image/upload/v1742225489/Julie/julie-selfie_elfj6e.jpg" />
                 <meta
                     property="og:description"
                     content="Julie Ulfeng er en pastellkunstner som spesialiserer seg på portretter og tegninger med myke pasteller. Lær mer om kunstnerens reise, teknikker og inspirasjon." />

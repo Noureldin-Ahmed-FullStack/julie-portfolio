@@ -12,7 +12,6 @@ import { useUserContext } from "../../context/UserContext";
 import { ArtPieceType } from "../../types";
 import DeleteArtButton from "./DeleteArtButton";
 import MarkAsSoldButton from "./MarkAsSoldButton";
-import { Helmet } from "react-helmet-async";
 
 export const ItemDetails = ({
   item,
@@ -35,19 +34,6 @@ export const ItemDetails = ({
   // const isActive = (index: number) => {
   //   return index === active;
   // };
-  const keywords = [
-    item.title,
-    "Julie Ulfeng",
-    "Pastellkunst",
-    "Norsk Kunst",
-    "Art",
-    "Artwork",
-    "Pastel",
-    "Painting",
-    ...item.title, // add tags/keywords from backend
-    ...item.type, // add tags/keywords from backend
-    ...item.format, // add tags/keywords from backend
-  ]
   useEffect(() => {
     if (autoplay) {
       const interval = setInterval(handleNext, 5000);
@@ -60,40 +46,7 @@ export const ItemDetails = ({
   // };
   return (
     <div className="max-w-lg md:max-w-5xl antialiased font-sans px-4 md:px-8 lg:px-12 py-10">
-      <Helmet>
-        <title>{item.title} | Julie Ulfeng – Pastellkunst</title>
-        {/* Example: "Portrait of Anna | Julie Ulfeng – Pastel Art" */}
-
-        <meta name="description" content={item.note} />
-        {/* Short description of the artwork */}
-
-        <meta name="keywords" content={keywords.join(", ")} />
-        {/* Dynamic keywords: title, tags, artist, art type */}
-
-        {/* Open Graph (for Facebook, WhatsApp, LinkedIn) */}
-        <meta property="og:type" content="article" />
-        <meta
-          property="og:title"
-          content={`${item.title} | Julie Ulfeng – Pastellkunst`}
-        />
-        <meta property="og:description" content={item.note} />
-        <meta property="og:image" content={item.coverImage || item.Images[0]} />
-        <meta
-          property="og:url"
-          content={`https://artbyjulieulfeng.vercel.app/art/${encodeURIComponent(
-            item.title
-          )}`}
-        />
-
-        {/* Twitter Cards */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content={`${item.title} | Julie Ulfeng – Pastellkunst`}
-        />
-        <meta name="twitter:description" content={item.note} />
-        <meta name="twitter:image" content={item.coverImage || item.Images[0]} />
-      </Helmet>
+    
       <div className="">
         <img src={item.Images[0]} className="w-full md:max-w-80 float-left me-5 rounded-2xl mb-3 overflow-hidden " alt="" />
         <div className="">

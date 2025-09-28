@@ -26,7 +26,10 @@ export default function HomePage() {
                     content="Hjem | Julie Ulfeng – Norsk Pastellkunstner"
                 />
                 {/* Home | Julie Ulfeng – Norwegian Pastel Artist */}
-
+                <meta property="og:image:type" content="image/jpg" />
+                <meta name="twitter:image" content="https://ssniper.sirv.com/Images/j2.jpg" />
+                <meta property="og:image:width" content="745" />
+                <meta property="og:image:height" content="1098" />
                 <meta
                     property="og:description"
                     content="Besøk Julie Ulfengs hjemmeside og opplev hennes kunstneriske univers. Se vakre pastellmalerier og følg reisen hennes som kunstner."
