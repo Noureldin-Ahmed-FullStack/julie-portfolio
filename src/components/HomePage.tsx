@@ -12,19 +12,25 @@ export default function HomePage() {
     return (
         <div className="flex flex-col grow items-center">
             <Helmet>
-                <title>Hjem | Julie Ulfeng – Norsk Pastellkunstner</title>
+                {/* <title>Hjem | Julie Ulfeng – Norsk Pastellkunstner</title> */}
+                <title>Julie Ulfeng – Norsk Pastellkunstner</title>
                 {/* Home | Julie Ulfeng – Norwegian Pastel Artist */}
 
-                <meta
+                {/* <meta
                     name="description"
                     content="Velkommen til den offisielle nettsiden til Julie Ulfeng. Utforsk unike pastellkunstverk, lær mer om kunstneren og oppdag inspirasjon fra norsk kunst."
-                />
+                /> */}
+                <meta name="description"
+                    content="Hei, jeg er Julie Ulfeng, en 23 år gammel norsk kunstner som spesialiserer meg på pastell. Arbeidet mitt kombinerer kunst, psykologi og personlige uttrykk." />
+
                 {/* Welcome to the official website of Julie Ulfeng. Explore unique pastel artworks, learn more about the artist, and discover inspiration from Norwegian art. */}
 
-                <meta
+                {/* <meta
                     property="og:title"
                     content="Hjem | Julie Ulfeng – Norsk Pastellkunstner"
-                />
+                /> */}
+
+                <meta property="og:title" content="Julie Ulfeng – Norsk Pastellkunstner" />
                 {/* Home | Julie Ulfeng – Norwegian Pastel Artist */}
                 <meta property="og:image:type" content="image/jpg" />
                 <meta name="twitter:image" content="https://ssniper.sirv.com/Images/j2.jpg" />
