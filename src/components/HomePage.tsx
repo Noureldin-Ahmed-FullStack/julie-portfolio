@@ -33,7 +33,7 @@ export default function HomePage() {
                 <meta property="og:title" content="Julie Ulfeng – Norsk Pastellkunstner" />
                 {/* Home | Julie Ulfeng – Norwegian Pastel Artist */}
                 <meta property="og:image:type" content="image/jpg" />
-                <meta name="twitter:image" content="https://ssniper.sirv.com/Images/j2.jpg" />
+                <meta name="twitter:image" content="https://res.cloudinary.com/dqijwldax/image/upload/v1742225489/Julie/julie-selfie_elfj6e.jpg" />
                 <meta property="og:image:width" content="745" />
                 <meta property="og:image:height" content="1098" />
                 <meta
